@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg 
+ version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px"
+	 height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"
+><g fill="#383838" id="afcae5a789ccd549f9c6e2a2f81bcc53"><g></g><path style="display: inline;  clip-rule: evenodd;" d="M438.5,1v36.5H402V1h-36.5v102.346
+		c-11.799-2.488-24-4.563-36.5-6.249v31.652h-36.5V93.479c-11.962-0.78-24.128-1.229-36.5-1.229s-24.538,0.449-36.5,1.229v35.271
+		H183V97.098c-12.5,1.686-24.702,3.761-36.5,6.249V1H110v36.5H73.5V1H37v456.25h54.75h54.75H183V329.5
+		c0-20.075,21.9-36.5,48.669-36.5h48.665C307.1,293,329,309.425,329,329.5v127.75h36.5H402h73V1H438.5z M146.5,247.375H91.75v-54.75
+		l27.375-27.375l27.375,27.375V247.375z M420.25,247.375H365.5v-54.75l27.375-27.375l27.375,27.375V247.375z M37,475.5h146V512H37
+		V475.5z M329,475.5h146V512H329V475.5z"></path></g></svg>
