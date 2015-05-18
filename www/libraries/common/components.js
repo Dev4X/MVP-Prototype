@@ -1652,7 +1652,7 @@ prx.types.image = {
         var thumbUrl = '';
 
         if (prx.urlCache != undefined)
-            thumbUrl = prx.urlCache.thumbs[item.imgSrc.url] || '';
+            thumbUrl = prx.urlCache.thumbs[item.imgSrc.fileId] || '';
 
         var missing = prx.url.static + '/images/editor/missing.png';
 
@@ -1723,18 +1723,18 @@ prx.types.image = {
         var cR = '<div id="' + _id + '" style="background-image:  url(' + thumbUrl + ');" ';
 
         cR += 'class="box pos type-image ' + (item.propagateEvents ? 'pointer-events-none' : '') + ((item.repeat) ? ' type-image-repeater' : '') + '" ' + ((item.overlay) ? 'data-mpoverlay="1"' : '') + '>';
-        cR += '<div id="' + _id + '-img-wrapper" class="type-image-wrapper ' + ((item.imgSrc.url.slice(-4) == '.svg') ? ' type-image-svg' : '') + missingClass + ((item.repeat) ? ' type-image-repeater' : '') + '" ' +
+        cR += '<div id="' + _id + '-img-wrapper" class="type-image-wrapper ' + ((item.imgSrc.fileId.slice(-4) == '.svg') ? ' type-image-svg' : '') + missingClass + ((item.repeat) ? ' type-image-repeater' : '') + '" ' +
         'style="background-image: url(' + wrapperBackground + ');">';
 
         cR += '<div></div>'
-        cR += '<img id="' + _id + '-img" src="' + ((item.imgSrc.url == "") ? "data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" : assetUrl) + '" width="100%" height="100%" />';
+        cR += '<img id="' + _id + '-img" src="' + ((item.imgSrc.fileId == "") ? "data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" : assetUrl) + '" width="100%" height="100%" />';
 
         if (assetUrl == missing)
             cR += '<div>' + item.caption + '</div>';
 
         cR += '<div></div>'
         cR += '</div>'
-        if (prx.editor && item.imgSrc.fileId == "01eb56561388a5a9015bcab43ddeeab5.svg" && item.imgSrc.folderId == "f1353077251107" && item.imgSrc.assetType == "gallery") {
+        if (prx.editor && item.imgSrc.fileId == "d310bece0e91b91b485ed62166d1fc2e.svg" && item.imgSrc.assetType == "gallery") {
             cR += '<div class="type-image-hover-message">Double-click to edit image</div>';
 	        cR += '<style>#' + _id + ' { background-color: #f9f9f9; }</style>'
 	        cR += '<style>#' + _id + ' .type-image-wrapper { border: ' + 1 * prx.componentsHelper.getScale(item.lib) + 'px solid #eee; box-sizing: border-box; }</style>'
@@ -1770,7 +1770,7 @@ prx.types.image = {
 	      				,name: 'imgSrc'
 	      				,type: 'combo-asset'
 	      				,displayValue: function(item,name) {
-	      					if(item.imgSrc.url == '') {
+	      					if(item.imgSrc.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.imgSrc.name;
@@ -2106,10 +2106,10 @@ prx.types.audio = {
 		var cR = '';
 		cR += '<div id="' + _id + '" class="box pos type-audio">';
 		cR += '<audio '+ ((item.controls) ? 'controls' : '') +' '+ ((item.preload) ? 'preload' : '') +' '+ ((item.autoplay) ? 'autoplay' : '') +'>';
-		if(item.audioFileMP3.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileMP3)+'" type="audio/mpeg" />';
-		if(item.audioFileOGG.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileOGG)+'" type="audio/ogg" />';
-		if(item.audioFileWAV.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileWAV)+'" type="audio/x-wav" />';
-		if(item.audioFileAAC.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileAAC)+'" type="audio/x-m4a" />';
+		if(item.audioFileMP3.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileMP3)+'" type="audio/mpeg" />';
+		if(item.audioFileOGG.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileOGG)+'" type="audio/ogg" />';
+		if(item.audioFileWAV.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileWAV)+'" type="audio/x-wav" />';
+		if(item.audioFileAAC.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.audioFileAAC)+'" type="audio/x-m4a" />';
 		cR += '</audio>';
 		cR += '</div>';
 		return cR;
@@ -2123,7 +2123,7 @@ prx.types.audio = {
 					,name: 'audioFileMP3'
 					,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.audioFileMP3.url == '') {
+						if(item.audioFileMP3.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.audioFileMP3.name;
@@ -2143,7 +2143,7 @@ prx.types.audio = {
 					,name: 'audioFileOGG'
 					,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.audioFileOGG.url == '') {
+						if(item.audioFileOGG.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.audioFileOGG.name;
@@ -2163,7 +2163,7 @@ prx.types.audio = {
 			    	,name: 'audioFileWAV'
 			    	,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.audioFileWAV.url == '') {
+						if(item.audioFileWAV.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.audioFileWAV.name;
@@ -2183,7 +2183,7 @@ prx.types.audio = {
 			    	,name: 'audioFileAAC'
 			    	,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.audioFileAAC.url == '') {
+						if(item.audioFileAAC.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.audioFileAAC.name;
@@ -2248,10 +2248,10 @@ prx.types.video = {
 		cR += '<div id="' + _id + '" class="box pos type-video '+item.videoType+'">';
 		switch(item.videoType) {
 		case 'html5':
-			cR += '<video id="'+_id+'-html5video" class="html5" width="100%" height="100%" '+ ((item.controls) ? 'controls' : '') + ((item.placeholder.url != '') ? ' poster='+prx.componentsHelper.getAssetUrl(item.placeholder) : '' )+' '+ ((!item.preload || prx.editor) ? 'preload="none"' : '') +' '+ ((item.autoplay) ? 'autoplay' : '') +' webkit-playsinline>';
-			if(item.videoFileMP4.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileMP4)+'" type="video/mp4" />';
-			if(item.videoFileWEBM.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileWEBM)+'" type="video/webm" />';
-			if(item.videoFileOGG.url != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileOGG)+'" type="video/ogg" />';
+			cR += '<video id="'+_id+'-html5video" class="html5" width="100%" height="100%" '+ ((item.controls) ? 'controls' : '') + ((item.placeholder.fileId != '') ? ' poster='+prx.componentsHelper.getAssetUrl(item.placeholder) : '' )+' '+ ((!item.preload || prx.editor) ? 'preload="none"' : '') +' '+ ((item.autoplay) ? 'autoplay' : '') +' webkit-playsinline>';
+			if(item.videoFileMP4.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileMP4)+'" type="video/mp4" />';
+			if(item.videoFileWEBM.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileWEBM)+'" type="video/webm" />';
+			if(item.videoFileOGG.fileId != '') cR += '<source src="'+prx.componentsHelper.getAssetUrl(item.videoFileOGG)+'" type="video/ogg" />';
 			cR += '</video>';
 			break;
 		case 'youtube':
@@ -2383,7 +2383,7 @@ prx.types.video = {
 			    	,name: 'videoFileMP4'
 			    	,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.videoFileMP4.url == '') {
+						if(item.videoFileMP4.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.videoFileMP4.name;
@@ -2406,7 +2406,7 @@ prx.types.video = {
 			    	,name: 'videoFileWEBM'
 			    	,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.videoFileWEBM.url == '') {
+						if(item.videoFileWEBM.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.videoFileWEBM.name;
@@ -2429,7 +2429,7 @@ prx.types.video = {
 			    	,name: 'videoFileOGG'
 			    	,type: 'asset'
 					,displayValue: function(item,name) {
-						if(item.videoFileOGG.url == '') {
+						if(item.videoFileOGG.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.videoFileOGG.name;
@@ -2452,7 +2452,7 @@ prx.types.video = {
 			    	,name: 'placeholder'
 			    	,type: 'combo-asset'
 					,displayValue: function(item,name) {
-						if(item.placeholder.url == '') {
+						if(item.placeholder.fileId == '') {
 							return 'No asset selected.';
 						}
 						return item.placeholder.name;
@@ -2757,7 +2757,7 @@ prx.types.basic_tabbar = {
 					cR += '#'+_id+' label[for='+_id+'-radio-'+i+'] .icon, #'+_id+' label[for='+_id+'-radio-'+i+'-overlay] .icon { -webkit-mask-image: url('+prx.componentsHelper.getAssetUrl(elm.icon)+'); }'
 				} else {
 					cR += '#'+_id+' label[for='+_id+'-radio-'+i+'] .icon, #'+_id+' label[for='+_id+'-radio-'+i+'-overlay] .icon { background-image: url('+prx.componentsHelper.getAssetUrl(elm.icon)+'); background-size: auto '+(item.iconSize * 20)+'%; }'
-					if(!item.maskEnabled && elm.activeicon.url != '' && prx.componentsHelper.getAssetUrl(elm.activeicon) != prx.componentsHelper.getAssetUrl(elm.icon) &&  prx.componentsHelper.getAssetUrl(elm.activeicon) != '') {
+					if(!item.maskEnabled && elm.activeicon.fileId != '' && prx.componentsHelper.getAssetUrl(elm.activeicon) != prx.componentsHelper.getAssetUrl(elm.icon) &&  prx.componentsHelper.getAssetUrl(elm.activeicon) != '') {
 						cR += '#'+_id+' input:checked + label[for='+_id+'-radio-'+i+'] .icon, #'+_id+' input:checked + label[for='+_id+'-radio-'+i+'-overlay] .icon { background-image: url('+prx.componentsHelper.getAssetUrl(elm.activeicon)+'); background-size: auto '+(item.iconSize * 20)+'%; }'
 					}
 				}
@@ -3104,8 +3104,8 @@ prx.types.basic_tabbar = {
        		,deleteCaption: 'Delete'
        		,blankItem: {
        			text: 'Label',
-       			icon: {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_333333.svg","color":"383838"},
-				activeicon: {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_ffffff.svg","color":"ffffff"},
+       			icon: {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_333333.svg","color":"383838"},
+				activeicon: {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_ffffff.svg","color":"ffffff"},
        			actions: []
        		}
        		,captionProperty: 'text'
@@ -3151,7 +3151,7 @@ prx.types.basic_tabbar = {
 		      				,name: 'icon'
 		      				,type: 'combo-asset'
 		      				,displayValue: function(item,name,index) {
-		      					if(item.tabs[index].icon.url == '') {
+		      					if(item.tabs[index].icon.fileId == '') {
 		      						return 'No icon selected';
 		      					}
 		      					return item.tabs[index].icon.name;
@@ -3180,7 +3180,7 @@ prx.types.basic_tabbar = {
 		      				,name: 'activeicon'
 		      				,type: 'combo-asset'
 		      				,displayValue: function(item,name,index) {
-		      					if(item.tabs[index].activeicon.url == '') {
+		      					if(item.tabs[index].activeicon.fileId == '') {
 		      						return 'No icon selected';
 		      					}
 		      					return item.tabs[index].activeicon.name;
@@ -3559,10 +3559,8 @@ prx.components.image = {
 	,icon: '-640px 0'
 	,helper: prx.url.devices+'/common/image/helper.png'
     , imgSrc: {
-        "fileId": "01eb56561388a5a9015bcab43ddeeab5.svg",
-        "folderId": "f1353077251107",
+        "fileId": "d310bece0e91b91b485ed62166d1fc2e.svg",
         "assetType": "gallery",
-        "url": "f1353077251107/01eb56561388a5a9015bcab43ddeeab5.svg",
         "bucketsource": "main",
         "name": " image_placeholder.svg"
     }
@@ -3584,14 +3582,7 @@ prx.components.icon = {
 	,icon: '-800px 0'
 	,helper: prx.url.devices+'/common/icon/helper.png'
     ,
-    imgSrc: {
-        "fileId": "f870b75c7ca176f7edefab7f79b0d24b.svg",
-        "name": "circle-star.svg",
-        "assetType": "icon",
-        "bucketsource": "static",
-        "url": "f1352971179296/f870b75c7ca176f7edefab7f79b0d24b.svg",
-        "folderId": "f1352971179296"
-    }
+    imgSrc: {"fileId":"27643c5e28557c84eb62871dfe4455bd.svg","name":"circle-star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/f870b75c7ca176f7edefab7f79b0d24b.svg"}
 	,repeat: false
     , width: 100 * prx.componentsHelper.getScale(_library)
     , height: 100 * prx.componentsHelper.getScale(_library)
@@ -3654,10 +3645,10 @@ prx.components.audio = {
 	,helper: prx.url.devices+'/common/audio/helper.png'
 	,width: 300
 	,height: 65
-	,audioFileWAV: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-	,audioFileMP3: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-	,audioFileOGG: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-	,audioFileAAC: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+	,audioFileWAV: { fileId: '', assetType: '', name: '' }
+	,audioFileMP3: { fileId: '', assetType: '', name: '' }
+	,audioFileOGG: { fileId: '', assetType: '', name: '' }
+	,audioFileAAC: { fileId: '', assetType: '', name: '' }
 	,controls: true
 	,preload: false
 	,autoplay: false
@@ -3673,13 +3664,13 @@ prx.components.video = {
 	,width: 250*prx.componentsHelper.getScale(_library)
 	,height: 180*prx.componentsHelper.getScale(_library)
 	,videoType: 'html5'
-	,videoFileMP4: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-	,videoFileOGG: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-	,videoFileWEBM: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+	,videoFileMP4: { fileId: '', assetType: '', name: '' }
+	,videoFileOGG: { fileId: '', assetType: '', name: '' }
+	,videoFileWEBM: { fileId: '', assetType: '', name: '' }
 	,controls: true
 	,preload: false
 	,autoplay: false
-	,placeholder: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+	,placeholder: { fileId: '', assetType: '', name: '' }
 	,youtubeid: ''
 	,vimeoid: ''
 }
@@ -3755,14 +3746,14 @@ prx.components.basic_tabbar = {
 	,tabs: [
 		{
 	    	text: 'Home'
-	    	,icon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_333333.svg","color":"383838"}
-			,activeicon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_ffffff.svg","color":"ffffff"}
+	    	,icon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_333333.svg","color":"383838"}
+			,activeicon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_ffffff.svg","color":"ffffff"}
 			,actions: []
 	    },
 		{
 	    	text: 'Messages'
-	    	,icon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_333333.svg","color":"383838"}
-		    ,activeicon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_ffffff.svg","color":"ffffff"}
+	    	,icon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_333333.svg","color":"383838"}
+		    ,activeicon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_ffffff.svg","color":"ffffff"}
 			,actions: []
 		}
     ]
@@ -3799,14 +3790,14 @@ prx.components.basic_tabbar_retina = {
 	,tabs: [
 		{
 	    	text: 'Home'
-	    	,icon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_333333.svg","color":"383838"}
-			,activeicon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_ffffff.svg","color":"ffffff"}
+	    	,icon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_333333.svg","color":"383838"}
+			,activeicon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_ffffff.svg","color":"ffffff"}
 			,actions: []
 	    },
 		{
 	    	text: 'Messages'
-	    	,icon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_333333.svg","color":"383838"}
-		    ,activeicon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_ffffff.svg","color":"ffffff"}
+	    	,icon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_333333.svg","color":"383838"}
+		    ,activeicon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_ffffff.svg","color":"ffffff"}
 			,actions: []
 		}
     ]

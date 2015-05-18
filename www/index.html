@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Dev4X - Public Demo Prototype - Proto.io</title>  
+		<title>Dev4X Prototype - Proto.io</title>  
 
 			<meta name="HandheldFriendly" content="True">
 			<meta name="MobileOptimized" content="#width#"> 
@@ -28,34 +28,34 @@
 
 		
 
-				<link rel="stylesheet" href="./stylesheets/player-engine-min.css?5.12.16.2" />
-				<script type="text/javascript" src="./scripts/player-engine-min.js?5.12.16.2"></script>
+				<link rel="stylesheet" href="./stylesheets/player-engine-min.css?5.12.19.2" />
+				<script type="text/javascript" src="./scripts/player-engine-min.js?5.12.19.2"></script>
 
 				
 					<script src="http://www.youtube.com/player_api"></script>
 	                <script src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/3/froogaloop.js"></script>
 				
-					<link type="text/css" href="./libraries/android/components.1.css" rel="Stylesheet" /> 
+					<link type="text/css" href="./libraries/android/components.1.00.css" rel="Stylesheet" /> 
 						<script type="text/javascript" src="./libraries/android/components.js"></script> 
 				
-					<link type="text/css" href="./libraries/common/components.1.css" rel="Stylesheet" /> 
+					<link type="text/css" href="./libraries/common/components.1.00.css" rel="Stylesheet" /> 
 						<script type="text/javascript" src="./libraries/common/components.js"></script> 
 				
-					<link type="text/css" href="./libraries/icons/components.1.css" rel="Stylesheet" /> 
+					<link type="text/css" href="./libraries/icons/components.1.00.css" rel="Stylesheet" /> 
 						<script type="text/javascript" src="./libraries/icons/components.js"></script> 
 				
-					<link type="text/css" href="./libraries/material/components.1.css" rel="Stylesheet" /> 
+					<link type="text/css" href="./libraries/material/components.1.00.css" rel="Stylesheet" /> 
 						<script type="text/javascript" src="./libraries/material/components.js"></script> 
 				
-					<link type="text/css" href="./libraries/ios7/components.2.css" rel="Stylesheet" /> 
+					<link type="text/css" href="./libraries/ios7/components.1.00.css" rel="Stylesheet" /> 
 						<script type="text/javascript" src="./libraries/ios7/components.js"></script> 
 				
 
 				<script type="text/javascript" src="./data/data.js"></script> 
 			
 		<style>
-			.landscape, .landscape .prx-page { min-height: 1080px; }
-			.portrait, .portrait .prx-page { min-height: 1920px; }
+			.landscape, .landscape .prx-page { min-height: 800px; }
+			.portrait, .portrait .prx-page { min-height: 1280px; }
 		</style>
 		
 			<script type="text/javascript">
@@ -78,24 +78,24 @@
 				prx.device_library = 'material';
 				prx.devices[prx.device] = {
 						name: prx.device
-						,caption: "Google Nexus 5 Android"
+						,caption: "S. Galaxy Tab 4 tablet"
 						,defaultOrientation: 'portrait'
 						,portrait_applies: 1 //new
-						,portrait: [1080,1920]
+						,portrait: [800,1280]
 						,landscape_applies: 1 //new
-						,landscape: [1920,1080]
+						,landscape: [1280,800]
 						,allow_orientation_change: 1 //new
 						,statusbar_skin: 'default' // new
-						,statusbarheightportrait: 0
-						,statusbarheightlandscape: 0
-						,navigationbar_skin: 'default' //new
-						,navigationbarheightportrait: 0
-						,navigationbarheightlandscape: 0
+						,statusbarheightportrait: 40
+						,statusbarheightlandscape: 40
+						,navigationbar_skin: 'shared' //new
+						,navigationbarheightportrait: 48
+						,navigationbarheightlandscape: 48
 
-						,normalportrait: [1080,1920]
-						,normallandscape: [1920,1080]
-						,device_s3bucket: '7d1e9198-35ab-4c32-a207-aa23af9818d2'
-						,dpr: '3.00'
+						,normalportrait: [800,1280]
+						,normallandscape: [1280,800]
+						,device_s3bucket: '9bbf1377-d75e-47da-9d97-08f67503673a'
+						,dpr: '1.00'
 
 				}
 
@@ -106,16 +106,16 @@
 				prx.embed = 0;
 
 				
-				prx.filename = 'e96fc07b-7f08-4d80-af7d-c926eaff8f01';
+				prx.filename = 'c178f63e-1cf5-4c45-9ce0-99fd99f3ecfe';
 				prx.ron = '0'; // Reviewers LIVE PREVIEW is ON
 				prx.url.devices = 'https://staticprotoio-proto.netdna-ssl.com/devices';
 				prx.save = 'false'; 
 
-				prx.statusbar = '1';
+				prx.statusbar = '0';
 				prx.statusbarapplies = '0';
 
 				prx.navigationbar = '0';
-				prx.navigationbarapplies = '0';
+				prx.navigationbarapplies = '1';
 
 				prx.url.static = 'https://staticprotoio-proto.netdna-ssl.com';
 				prx.vup = '1';
@@ -124,7 +124,7 @@
 				
 				prx.rl = '1';
 				prx.s3b = 'dev4mep-78403-proto';
-				prx.projectid = 'e96fc07b-7f08-4d80-af7d-c926eaff8f01';
+				prx.projectid = 'c178f63e-1cf5-4c45-9ce0-99fd99f3ecfe';
 				prx.initialpageid = false;
 				prx.deviceorientation = 'portrait';
 				prx.export2html = '1';
@@ -133,18 +133,22 @@
 				
 					prx.componentsHelper.getAssetUrl = function(asset) {
 						var assetType = asset.assetType;
-						var url = asset.url;
+						var url;
 
 						if (typeof(asset.targetSrc) != "undefined") {
 							url =  './assets/' + asset.targetSrc;
 						} else {
-							url =  './assets/' + url;
+							if(prx.dropboxfs && asset.bucketsource != "static") {
+								url =  './assets/' + asset.fileId;
+							} else {
+								url =  './assets/' + asset.url;
+							}
 						}
 
 						//linked assets
 						if (asset.assetType == "project") {
-							if (typeof(sLinkedAssets["pe96fc07b-7f08-4d80-af7d-c926eaff8f01_"+asset.fileId]) != "undefined") {
-								url = sLinkedAssets["pe96fc07b-7f08-4d80-af7d-c926eaff8f01_"+asset.fileId];
+							if (typeof(sLinkedAssets["pc178f63e-1cf5-4c45-9ce0-99fd99f3ecfe_"+asset.fileId]) != "undefined") {
+								url = sLinkedAssets["pc178f63e-1cf5-4c45-9ce0-99fd99f3ecfe_"+asset.fileId];
 							}
 						}
 
@@ -258,7 +262,7 @@
 		
 	</head>
 
-	<body oncontextmenu="return false;" class="player device-cursor-touch" style="overflow: hidden; width: 1080px; height: 1920px;" id="mbd">
+	<body oncontextmenu="return false;" class="player device-cursor-touch" style="overflow: hidden; width: 800px; height: 1280px;" id="mbd">
 
 		
 		
@@ -266,11 +270,11 @@
 			<div id="dragarea" style="display:none;"></div>
 			<div id="statusbar"></div>
 
-			<div class="prx-page" data-role="page" id="p-50" data-id="50"></div> <div class="prx-page" data-role="page" id="p-4" data-id="4"></div> <div class="prx-page" data-role="page" id="p-16" data-id="16"></div> <div class="prx-page" data-role="page" id="p-21" data-id="21"></div> <div class="prx-page" data-role="page" id="p-24" data-id="24"></div> <div class="prx-page" data-role="page" id="p-32" data-id="32"></div> <div class="prx-page" data-role="page" id="p-35" data-id="35"></div> <div class="prx-page" data-role="page" id="p-36" data-id="36"></div> <div class="prx-page" data-role="page" id="p-37" data-id="37"></div> <div class="prx-page" data-role="page" id="p-39" data-id="39"></div> <div class="prx-page" data-role="page" id="p-40" data-id="40"></div> <div class="prx-page" data-role="page" id="p-41" data-id="41"></div> <div class="prx-page" data-role="page" id="p-42" data-id="42"></div> <div class="prx-page" data-role="page" id="p-43" data-id="43"></div> <div class="prx-page" data-role="page" id="p-44" data-id="44"></div> <div class="prx-page" data-role="page" id="p-45" data-id="45"></div> <div class="prx-page" data-role="page" id="p-51" data-id="51"></div> <div class="prx-page" data-role="page" id="p-52" data-id="52"></div> <div class="prx-page" data-role="page" id="p-53" data-id="53"></div> <div class="prx-page" data-role="page" id="p-54" data-id="54"></div> <div class="prx-page" data-role="page" id="p-55" data-id="55"></div> <div class="prx-page" data-role="page" id="p-56" data-id="56"></div> <div class="prx-page" data-role="page" id="p-57" data-id="57"></div> 
+			<div class="prx-page" data-role="page" id="p-56" data-id="56"></div> <div class="prx-page" data-role="page" id="p-4" data-id="4"></div> <div class="prx-page" data-role="page" id="p-16" data-id="16"></div> <div class="prx-page" data-role="page" id="p-21" data-id="21"></div> <div class="prx-page" data-role="page" id="p-35" data-id="35"></div> <div class="prx-page" data-role="page" id="p-39" data-id="39"></div> <div class="prx-page" data-role="page" id="p-40" data-id="40"></div> <div class="prx-page" data-role="page" id="p-41" data-id="41"></div> <div class="prx-page" data-role="page" id="p-43" data-id="43"></div> <div class="prx-page" data-role="page" id="p-44" data-id="44"></div> <div class="prx-page" data-role="page" id="p-45" data-id="45"></div> <div class="prx-page" data-role="page" id="p-53" data-id="53"></div> 
 			<div id="navigationbar"></div>
 
 
-			<div id="overlay" style="position: absolute; top:0px;left:0px;"></div> <div id="trash" style="position: absolute; left:0px; display: none;"></div>
+			<div id="overlay" style="position: absolute; top:40px;left:0px;"></div> <div id="trash" style="position: absolute; left:0px; display: none;"></div>
 
 
 
@@ -313,24 +317,6 @@
 					}
 				</style>
 			
-			
-			
-				<script>
-
-				$(document).ready(function(){
-
-					
-					var _version = ('0' != '0' && '0' != 'latest') ? 'v0' : 'live';
-					var analyticscode = 'UA-44609258-2'
-					var siteurl = 'proto.io';
-					
-
-					prx.analytics.ini(analyticscode, _version, siteurl);
-
-				});
-				</script>
-			
-		
 
 	</body>
 </html> 
