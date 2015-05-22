@@ -4,8 +4,23 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Launcher\"><param name=\"android-package\" value=\"com.hutchind.cordova.plugins.launcher.Launcher\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
-    "installed_plugins": {},
+    "installed_plugins": {
+        "com.hutchind.cordova.plugins.launcher": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        }
+    },
     "dependent_plugins": {}
 }

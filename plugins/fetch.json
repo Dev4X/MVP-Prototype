@@ -1,0 +1,9 @@
+{
+    "com.hutchind.cordova.plugins.launcher": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nchutchind/App-Launcher-Cordova-Plugin.git",
+            "subdir": "."
+        }
+    }
+}

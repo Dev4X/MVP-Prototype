@@ -1,0 +1,59 @@
+#sub-nav {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+
+	li, a {
+		display: inline-block;
+	}
+
+	li {
+		border-right: 1px solid #FFF;
+		box-sizing: border-box;
+
+		&:first-child {
+			border-left: 1px solid #FFF;
+		}
+	}
+
+	a {
+		font-weight: 100;
+		padding: 14px 0;
+		text-align: center;
+		text-decoration: none;
+		width: 100%;
+	}
+
+	.active a {
+		background: #FFF;
+	}
+}
+
+.learning #sub-nav {
+	li {
+		width: 33.33%;
+	}
+
+	a {
+		color: $learning_color;
+	}
+}
+
+.community #sub-nav {
+	li {
+		width: 33.33%;
+	}
+
+	a {
+		color: $community_color;
+	}
+}
+
+.profile #sub-nav {
+	li {
+		width: 50%;
+	}
+
+	a {
+		color: $profile_color;
+	}
+}

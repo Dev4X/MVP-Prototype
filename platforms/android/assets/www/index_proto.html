@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE HTML>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Dev4X Prototype - Proto.io</title>  
+
+			<meta name="HandheldFriendly" content="True">
+			<meta name="MobileOptimized" content="#width#"> 
+
+			
+			
+			
+			<meta name="viewport" content="width=device-width, minimum-scale=1.00, maximum-scale=1.00, initial-scale=1.00, user-scalable=no, target-densitydpi=device-dpi"> 
+
+			<meta name="format-detection" content="telephone=no">
+
+
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/branding/apple-touch-icon-retina.png"> <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/branding/apple-touch-icon-ipad.png"> <link rel="apple-touch-icon-precomposed" href="./assets/branding/apple-touch-icon.png"> <link rel="shortcut icon" href="./assets/branding/apple-touch-icon.png"> 
+
+			<style>
+				body * {-webkit-text-size-adjust: 100%;}
+			</style>
+		
+
+		<meta http-equiv="cleartype" content="on"> 
+
+		
+
+				<link rel="stylesheet" href="./stylesheets/player-engine-min.css?5.12.19.2">
+				<script type="text/javascript" src="./scripts/player-engine-min.js?5.12.19.2"></script>
+
+				
+					<script src="http://www.youtube.com/player_api"></script>
+	                <script src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/3/froogaloop.js"></script>
+				
+					<link type="text/css" href="./libraries/android/components.1.00.css" rel="Stylesheet"> 
+						<script type="text/javascript" src="./libraries/android/components.js"></script> 
+				
+					<link type="text/css" href="./libraries/common/components.1.00.css" rel="Stylesheet"> 
+						<script type="text/javascript" src="./libraries/common/components.js"></script> 
+				
+					<link type="text/css" href="./libraries/icons/components.1.00.css" rel="Stylesheet"> 
+						<script type="text/javascript" src="./libraries/icons/components.js"></script> 
+				
+					<link type="text/css" href="./libraries/material/components.1.00.css" rel="Stylesheet"> 
+						<script type="text/javascript" src="./libraries/material/components.js"></script> 
+				
+					<link type="text/css" href="./libraries/ios7/components.1.00.css" rel="Stylesheet"> 
+						<script type="text/javascript" src="./libraries/ios7/components.js"></script> 
+				
+
+				<script type="text/javascript" src="./data/data.js"></script> 
+			
+		<style>
+			.landscape, .landscape .prx-page { min-height: 800px; }
+			.portrait, .portrait .prx-page { min-height: 1280px; }
+		</style>
+		
+			<script type="text/javascript">
+
+				prx.spaces = false;
+
+				
+				
+					var sLinkedAssets = [];
+					
+
+				prx.url['account'] = 'https://dev4mep.proto.io';
+				prx.url['staticassets'] = 'https://gal.proto.io';
+
+				
+				
+					prx.device = 'default';
+				
+
+				prx.device_library = 'material';
+				prx.devices[prx.device] = {
+						name: prx.device
+						,caption: "S. Galaxy Tab 4 tablet"
+						,defaultOrientation: 'portrait'
+						,portrait_applies: 1 //new
+						,portrait: [800,1280]
+						,landscape_applies: 1 //new
+						,landscape: [1280,800]
+						,allow_orientation_change: 1 //new
+						,statusbar_skin: 'default' // new
+						,statusbarheightportrait: 40
+						,statusbarheightlandscape: 40
+						,navigationbar_skin: 'shared' //new
+						,navigationbarheightportrait: 48
+						,navigationbarheightlandscape: 48
+
+						,normalportrait: [800,1280]
+						,normallandscape: [1280,800]
+						,device_s3bucket: '9bbf1377-d75e-47da-9d97-08f67503673a'
+						,dpr: '1.00'
+
+				}
+
+
+				prx.mobilebrowser = !0; 
+				prx.iosmobilebrowser = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+
+				prx.embed = 0;
+
+				
+				prx.filename = 'c178f63e-1cf5-4c45-9ce0-99fd99f3ecfe';
+				prx.ron = '0'; // Reviewers LIVE PREVIEW is ON
+				prx.url.devices = 'https://staticprotoio-proto.netdna-ssl.com/devices';
+				prx.save = 'false'; 
+
+				prx.statusbar = '0';
+				prx.statusbarapplies = '0';
+
+				prx.navigationbar = '0';
+				prx.navigationbarapplies = '1';
+
+				prx.url.static = 'https://staticprotoio-proto.netdna-ssl.com';
+				prx.vup = '1';
+				
+					prx.v = '0';
+				
+				prx.rl = '1';
+				prx.s3b = 'dev4mep-78403-proto';
+				prx.projectid = 'c178f63e-1cf5-4c45-9ce0-99fd99f3ecfe';
+				prx.initialpageid = false;
+				prx.deviceorientation = 'portrait';
+				prx.export2html = '1';
+
+				 
+				
+					prx.componentsHelper.getAssetUrl = function(asset) {
+						var assetType = asset.assetType;
+						var url;
+
+						if (typeof(asset.targetSrc) != "undefined") {
+							url =  './assets/' + asset.targetSrc;
+						} else {
+							if(prx.dropboxfs && asset.bucketsource != "static") {
+								url =  './assets/' + asset.fileId;
+							} else {
+								url =  './assets/' + asset.url;
+							}
+						}
+
+						//linked assets
+						if (asset.assetType == "project") {
+							if (typeof(sLinkedAssets["pc178f63e-1cf5-4c45-9ce0-99fd99f3ecfe_"+asset.fileId]) != "undefined") {
+								url = sLinkedAssets["pc178f63e-1cf5-4c45-9ce0-99fd99f3ecfe_"+asset.fileId];
+							}
+						}
+
+						if (asset.assetType == "account") {
+							if (typeof(sLinkedAssets["p_"+asset.fileId]) != "undefined") {
+								url = sLinkedAssets["p_"+asset.fileId];
+							}
+						}
+
+						return url;
+					}
+				
+				
+
+
+				prx.orientation._orientation = prx.orientation.get();
+				prx.orientation.changeBody(prx.orientation._orientation);
+
+				prx.user = {'country':'ZZ'};
+
+				$(document).ready(function(){
+
+					prx.inProtoApp = (typeof(prx.utils.getCookie('appbakerIosWrapper')) != "undefined" || typeof(prx.utils.getCookie('protoAppAndroidWrapper')) != "undefined") || 0;
+					prx.inProtoIOsApp = (typeof(prx.utils.getCookie('appbakerIosWrapper')) != "undefined");
+					prx.inProtoAndroidApp = (typeof(prx.utils.getCookie('protoAppAndroidWrapper')) != "undefined");
+
+					// STATUSBAR = TOP BAR
+					if (prx.statusbarapplies == true) { // didnt work without  == true!
+						prx.allowstatusbar = true;
+					} else {
+						prx.allowstatusbar = false;
+					}
+
+					
+
+						if (!prx.inProtoApp && prx.allowstatusbar) {
+							// CHECK STATUSBAR ON IOS
+							var _agents = navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad)/g); // iOS
+							if (_agents) {
+								// if in safari, false, if in add to home, true
+								var _standalone = window.navigator.standalone ? true:false;
+								if(_standalone) {
+								 	// ANNAM 5.2.3 for ios7 translucent statusbars
+								 	// if standalone ios, always allow statusbar
+									//prx.allowstatusbar = false;
+									prx.allowstatusbar = true;
+									prx.devices[prx.device].statusbar_skin = 'default';
+									$('body').prepend("<style>.type-ios7-statusbar .ios7-statusbar-inner * { display: none; }</style>");
+								} else {
+							 		
+
+							 		// if not fullscreen then disable statusbar
+							 		if(!($(window).width() == prx.devices[prx.device][prx.orientation._orientation][0] && $(window).height() == prx.devices[prx.device][prx.orientation._orientation][1])) {
+										prx.allowstatusbar = false;
+							 		}
+							 	}
+							}
+
+							// CHECK STATUSBAR ON ANDROID
+							
+							try {
+								_agents = navigator.userAgent.toLowerCase().match(/(android)/g); // Android
+								if (_agents) {
+									// if not fullscreen then disable statusbar
+							 		if(!($(window).width() == prx.devices[prx.device][prx.orientation._orientation][0] && $(window).height() == prx.devices[prx.device][prx.orientation._orientation][1])) {
+										prx.allowstatusbar = false;
+							 		}
+								}
+							} catch(err) {alert(err)}
+						}
+					
+
+
+					// NAVIGATION BAR = BOTTOM BAR
+					if (prx.navigationbarapplies) {
+						prx.allownavigationbar = true;
+					} else {
+						prx.allownavigationbar = false;
+					}
+
+					
+					var _agents = navigator.userAgent.toLowerCase().match(/(android)/g);
+					if (_agents) {
+						try {
+							if(!($(window).width() == prx.devices[prx.device][prx.orientation._orientation][0] && $(window).height() == prx.devices[prx.device][prx.orientation._orientation][1])) {
+								prx.allownavigationbar = false;
+					 		}
+				 		} catch(err) {alert(err)}
+				 		$('body').prepend("<style>.prx-page { position: absolute!important; }</style>");
+					}
+					
+
+					prx.youtube.ini();
+
+
+					$('#dragarea').css('width',$(window).width()+'px');
+					$('#dragarea').css('height',$(window).height()+'px');
+
+					if (typeof(prx.xdata) != "undefined") {
+						prx.xdata = $.toJSON(prx.xdata);
+					}
+
+					prx.s3Links = {};
+
+					prx.loading.load(prx.filename);
+
+					
+
+				});
+			</script>
+		
+	</head>
+
+	<body oncontextmenu="return false;" class="player device-cursor-touch" style="overflow: hidden; width: 800px; height: 1280px;" id="mbd">
+
+		
+		
+		<div id="window-wrapper" style="width: 100%; height: 100%; overflow: hidden; position: relative">
+			<div id="dragarea" style="display:none;"></div>
+			<div id="statusbar"></div>
+
+			<div class="prx-page" data-role="page" id="p-56" data-id="56"></div> <div class="prx-page" data-role="page" id="p-4" data-id="4"></div> <div class="prx-page" data-role="page" id="p-16" data-id="16"></div> <div class="prx-page" data-role="page" id="p-21" data-id="21"></div> <div class="prx-page" data-role="page" id="p-35" data-id="35"></div> <div class="prx-page" data-role="page" id="p-39" data-id="39"></div> <div class="prx-page" data-role="page" id="p-40" data-id="40"></div> <div class="prx-page" data-role="page" id="p-41" data-id="41"></div> <div class="prx-page" data-role="page" id="p-43" data-id="43"></div> <div class="prx-page" data-role="page" id="p-44" data-id="44"></div> <div class="prx-page" data-role="page" id="p-45" data-id="45"></div> <div class="prx-page" data-role="page" id="p-53" data-id="53"></div> 
+			<div id="navigationbar"></div>
+
+
+			<div id="overlay" style="position: absolute; top:40px;left:0px;"></div> <div id="trash" style="position: absolute; left:0px; display: none;"></div>
+
+
+
+		</div>
+
+		
+
+        	<div id="loader-wrapper">
+				<div id="app-icon"><img src="images/player/appicon.png"></div> 
+
+				<div class="progress">
+					<div class="progress-bar"></div>
+				</div>
+				<div id="poweredby"></div>
+			</div>
+
+			
+				<style>
+					#loader-wrapper #poweredby {
+					background-image: url('images/player/madewithproto.png') !important;
+					}
+
+					@media (min-width: 481px) and (max-width:1079px)  {
+					 #loader-wrapper #poweredby {
+					 background-image: url('images/player/madewithproto@2x.png') !important;
+					 height:32px;
+					 }
+					}
+					@media (min-width: 1080px) {
+						 #loader-wrapper #poweredby {
+						 background-image: url('images/player/madewithproto@3x.png') !important;
+						 height:48px;
+						 }
+					}
+					@media (width: 1280px) and (height: 768px) {
+						 #loader-wrapper #poweredby {
+						 background-image: url('images/player/madewithproto.png') !important;
+						 height:32px ;
+						 }
+					}
+				</style>
+			
+
+	</body>
+ 

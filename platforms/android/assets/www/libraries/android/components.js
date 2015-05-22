@@ -46,7 +46,7 @@ prx.types.android_actionbar = {
 			cR += '<img src="'+prx.componentsHelper.getAssetUrl(item.upCaretIcon)+'" style="height: '+(item.upCaretIconSize * 20)+'%;"/>'
 			cR += '</div>'
 		}
-		if(typeof(item.selectionIcon)!= "undefined" && item.selectionIcon.url != "") {
+		if(typeof(item.selectionIcon)!= "undefined" && item.selectionIcon.fileId != "") {
 			cR += '<div class="left-icon" style="line-height: '+_height+'px;">'
 			cR += '<img src="'+prx.componentsHelper.getAssetUrl(item.selectionIcon)+'" style="height: '+(item.selectionIconSize * 20)+'%; border-right: '+(1*prx.componentsHelper.getScale(item.lib))+'px solid '+prx.utils.getColor(item.borderColor)+'; padding-left: '+(10*prx.componentsHelper.getScale(item.lib))+'px;"/>'
 			cR += '</div>'
@@ -261,20 +261,14 @@ prx.types.android_actionbar = {
 						name: 'upCaretIcon',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(typeof(item.upCaretIcon) == "undefined" || item.upCaretIcon.url == '') {
+							if(typeof(item.upCaretIcon) == "undefined" || item.upCaretIcon.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.upCaretIcon.name;
 						}
 						,value: function(item,name) {
 							if(typeof(item.upCaretIcon) == "undefined") {
-								item.upCaretIcon = {
-										fileId: '',
-										folderId: '',
-										url: '',
-										assetType: 'icon',
-										name: ''
-									}
+								item.upCaretIcon = {"fileId":"","name":"","assetType":"icon","url":""}
 							}
 							return $.toJSON({
 								allow: 'image',
@@ -319,20 +313,14 @@ prx.types.android_actionbar = {
 						name: 'selectionIcon',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(typeof(item.selectionIcon) == "undefined" || item.selectionIcon.url == '') {
+							if(typeof(item.selectionIcon) == "undefined" || item.selectionIcon.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.selectionIcon.name;
 						}
 						,value: function(item,name) {
 							if(typeof(item.selectionIcon) == "undefined") {
-								item.selectionIcon = {
-										fileId: '',
-										folderId: '',
-										url: '',
-										assetType: '',
-										name: ''
-									}
+								item.selectionIcon = {"fileId":"","name":"","assetType":"icon","url":""}
 							}
 							return $.toJSON({
 								allow: 'image',
@@ -758,11 +746,12 @@ prx.types.android_scrollabletabbar = {
 			// need to reinitialize
 
 			var _linked = containerid+ '-' + item.linkedContainer + '-inner';
+
 			if(typeof(prx.scrollable._scrollables[_linked]) != "undefined") {
 
 				var i = index//prx.scrollable._scrollableTabbars.length - 1;
 
-				// code copied from player2.js iniScrollableContainer
+				// code copied from player2.js iniScrollableContainer, NOTICE LINE ABOUT SETTING PROBETYPE TO 3
 				var _tabbar = prx.scrollable._scrollableTabbars[i].container+ '-' + prx.scrollable._scrollableTabbars[i].id + '-inner';
 				prx.scrollable._scrollables[_linked].options.linkedTabbar = _tabbar;
 				prx.scrollable._scrollables[_linked].goToPage(Number(prx.scrollable._scrollableTabbars[i].start), 0, 0);
@@ -770,14 +759,13 @@ prx.types.android_scrollabletabbar = {
 					// for some reason this needs to be here when the tabbar is not in the startscreen. XL :o
 					prx.scrollable._scrollables[_tabbar].goToPage(Number(prx.scrollable._scrollableTabbars[i].start), 0, 0);
 				}
+				prx.scrollable._scrollables[_linked].options.probeType = 3; // ATTENTION HERE
 				prx.scrollable._scrollables[_linked].on('scroll', function() {
-				//prx.scrollable._scrollables[_linked].options.onScrollMove = function() {
-					prx.scrollable._scrollables[this.options.linkedTabbar].scrollTo(this.x/2, 0, 0, false);
+					var x = this.x;
+					prx.scrollable._scrollables[this.options.linkedTabbar].scrollTo(x/2, 0, 0, false);
 				});
-				//prx.scrollable._scrollables[_linked].on('scrollEnd', function() {
+
 				$(prx.scrollable._scrollables[_linked].wrapper).on('mouseup touchend', function() {
-				//prx.scrollable._scrollables[_linked].options.onTouchEnd = function() {
-					//prx.scrollable._scrollables[this.options.linkedTabbar].goToPage(this.currentPage.pageX, 0, 200);
 					prx.scrollable._scrollables[prx.scrollable._scrollables[_linked].options.linkedTabbar].goToPage(prx.scrollable._scrollables[_linked].currentPage.pageX, 0, 200);
 				});
 			}
@@ -1321,7 +1309,7 @@ prx.types.android_dropdown = {
 		,deleteCaption: 'Delete'
 		,blankItem: {
 			text: 'Label'
-			,icon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+			,icon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,actions: []
 		}
 		,captionProperty: 'text'
@@ -1365,7 +1353,7 @@ prx.types.android_dropdown = {
 							,name: 'icon'
 							,type: 'combo-asset'
 							,displayValue: function(item,name,index) {
-								if(item.options[index].icon.url == '') {
+								if(item.options[index].icon.fileId == '') {
 									return 'No icon selected';
 								}
 								return item.options[index].icon.name;
@@ -1411,7 +1399,7 @@ prx.types.android_button = {
 		cR = cR + '<div id="' + _id + '" class="pos box type-android-button">';
 		cR = cR + '<div class="button liveUpdate-backgroundColor liveUpdate-textColor changeProperty-backgroundColor changeProperty-textColor changeProperty-textFont changeProperty-textSize" style="box-shadow: 0 1px 1px '+prx.utils.getColor(item.shadowColor)+'; background: '+prx.utils.getColor(item.backgroundColor)+'; height: 100%; line-height: '+_dims.height+'px; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' '+_props+' color: '+prx.utils.getColor(item.textColor)+'; font-size: '+item.textSize+'px;">'
 
-		if(item.buttonicon.url != '') {
+		if(item.buttonicon.fileId != '') {
 			switch(item.iconpos) {
 			case 'left':
 			case 'right':
@@ -1594,7 +1582,7 @@ prx.types.android_button = {
 	      				,name: 'buttonicon'
 	      				,type: 'combo-asset'
 	      				,displayValue: function(item,name) {
-	      					if(item.buttonicon.url == '') {
+	      					if(item.buttonicon.fileId == '') {
       							return 'No icon selected';
       						}
       						return item.buttonicon.name;
@@ -2215,7 +2203,7 @@ prx.types.android_checkbox = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 
 		if(!prx.editor) {
-			$('#'+_id+'-checkbox').change(function(){
+			$('#'+_id+'-checkbox').on('change.custom-change-event', function(e){
 				if(typeof(prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']) == "undefined") { prx.variables._triggerData['input:checked[id='+_id+'-checkbox]'] = {}; }
 		        prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']['checkboxchange'] = { state: $(this).is(':checked') };
 		        if(typeof(prx.variables._triggerData['input[id='+_id+'-checkbox]:not(:checked)']) == "undefined") { prx.variables._triggerData['input[id='+_id+'-checkbox]:not(:checked)'] = {}; }
@@ -2378,7 +2366,7 @@ prx.types.android_radiobutton = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 
 		if(!prx.editor) {
-			$('#'+_id+'-checkbox').change(function(){
+			$('#'+_id+'-checkbox').on('change.custom-change-event', function(e){
 				if(typeof(prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']) == "undefined") { prx.variables._triggerData['input:checked[id='+_id+'-checkbox]'] = {}; }
 				prx.variables._triggerData['input:checked[id='+_id+'-checkbox]'] = {};
 		        prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']['checkboxchange'] = { state: $(this).is(':checked') };
@@ -2585,7 +2573,7 @@ prx.types.android_onoffswitch = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 
 		if(!prx.editor) {
-			$('#'+_id+'-flipswitch').change(function(){
+			$('#'+_id+'-flipswitch').on('change.custom-change-event', function(e){
 				if(typeof(prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]']) == "undefined") { prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]'] = {}; }
 		        prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]']['checkboxchange'] = { state: $(this).is(':checked') };
 		        if(typeof(prx.variables._triggerData['input[id='+_id+'-flipswitch]:not(:checked)']) == "undefined") { prx.variables._triggerData['input[id='+_id+'-flipswitch]:not(:checked)'] = {}; }
@@ -2905,7 +2893,7 @@ prx.types.android_listcomplex = {
 		var _dims = prx.componentsHelper.getRealDims(item, symbol);
 		var _height = Math.round((_dims.height-1-item.listitems.length) / item.listitems.length);
 
-		if(typeof(item.imgSrc) == "undefined") { item.imgSrc = {"fileId":"","name":"","assetType":"","bucketsource":"","url":"","folderId":"","targetSrc":"","color":""} };
+		if(typeof(item.imgSrc) == "undefined") { item.imgSrc = {"fileId":"","name":"","assetType":"icon","url":""} };
 
 		if(typeof(item.textProperties) == "undefined") { item.textProperties = []; }
 		var _props = (jQuery.inArray("bold",item.textProperties)>-1) ? " font-weight: bold;" : "";
@@ -2922,7 +2910,7 @@ prx.types.android_listcomplex = {
 
 		var hasThumbs = false;
 		for(var i=0;i<item.listitems.length;i++) {
-			if(typeof(item.listitems[i].thumbnail) != "undefined" && item.listitems[i].thumbnail.url != '') {
+			if(typeof(item.listitems[i].thumbnail) != "undefined" && item.listitems[i].thumbnail.fileId != '') {
 				hasThumbs = true;
 				break;
 			}
@@ -2951,7 +2939,7 @@ prx.types.android_listcomplex = {
 
 			var icon = '';
 			if(elm.itemtype == 'withCheckbox' || elm.itemtype == 'withRadio' || elm.itemtype == 'withIcon') {
-				icon = '<div class="android-list-icon android-list-icon-'+item.iconpos+'" '+((typeof (elm.buttonicon) != "undefined" && elm.buttonicon.url != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.buttonicon)+');"' : '' ) + '></div>';
+				icon = '<div class="android-list-icon android-list-icon-'+item.iconpos+'" '+((typeof (elm.buttonicon) != "undefined" && elm.buttonicon.fileId != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.buttonicon)+');"' : '' ) + '></div>';
 			}
 
 			cR += '<div id="'+_id+'-listitems-'+i+'" class="dynamic-property android-list-listitem android-list-listitem-type-'+elm.itemtype+'" data-dynamic-property-index="'+i+'">';
@@ -2965,7 +2953,7 @@ prx.types.android_listcomplex = {
 			if(item.iconpos == "left") { cR += icon; }
 
 			if(hasThumbs) {
-				cR += '<div class="android-list-thumb" '+((typeof(elm.thumbnail) != "undefined" && elm.thumbnail.url != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.thumbnail)+');"' : '') + '></div>';
+				cR += '<div class="android-list-thumb" '+((typeof(elm.thumbnail) != "undefined" && elm.thumbnail.fileId != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.thumbnail)+');"' : '') + '></div>';
 			}
 
 			cR += '<div class="text-and-subtitle">';
@@ -3257,20 +3245,8 @@ prx.types.android_listcomplex = {
 			text: 'Label'
 			,itemtype: 'basic'
 			,subtitle: ''
-			,thumbnail: {
-				fileId: '',
-				folderId: '',
-				url: '',
-				assetType: '',
-				name: ''
-			}
-			,buttonicon: {
-				fileId: '',
-				folderId: '',
-				url: '',
-				assetType: 'icon',
-				name: ''
-			},
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""},
 			checked: false,
 			actions: []
 		}
@@ -3349,12 +3325,12 @@ prx.types.android_listcomplex = {
 									$('#property-buttonicon, #property-checked').hide();
 									break;
 								case 'withIcon':
-									item.buttonicon = { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' };
+									item.buttonicon = {"fileId":"","name":"","assetType":"icon","url":""};
 									return item;
 									break;
 								case 'withCheckbox':
 								case 'withRadio':
-									item.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+									item.buttonicon = {"fileId":"e55a24db51c6e010c487864432e3d456.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 									return item;
 									break;
 								default: break;
@@ -3380,7 +3356,7 @@ prx.types.android_listcomplex = {
 							,name: 'thumbnail'
 							,type: 'combo-asset'
 							,displayValue: function(item,name,index) {
-								if(typeof(item.listitems[index].thumbnail) == 'undefined' || item.listitems[index].thumbnail.url == '') {
+								if(typeof(item.listitems[index].thumbnail) == 'undefined' || item.listitems[index].thumbnail.fileId == '') {
 									return 'No thumbnail selected';
 								}
 								return item.listitems[index].thumbnail.name;
@@ -3408,7 +3384,7 @@ prx.types.android_listcomplex = {
 							,name: 'buttonicon'
 							,type: 'combo-asset'
 							,displayValue: function(item,name,index) {
-								if(item.listitems[index].buttonicon.url == '') {
+								if(item.listitems[index].buttonicon.fileId == '') {
 									return 'No icon selected';
 								}
 								return item.listitems[index].buttonicon.name;
@@ -3483,7 +3459,7 @@ prx.types.android_listwithicon.name = 'android_listwithicon';
 prx.componentsHelper.removeProperties(prx.types.android_listwithicon.dynamicProperties.propertyGroups, ['itemtype']);
 prx.types.android_listwithicon.dynamicProperties.blankItem = prx.componentsHelper.removeObjMembers(prx.types.android_listwithicon.dynamicProperties.blankItem, ['checked']);
 prx.types.android_listwithicon.dynamicProperties.blankItem.itemtype = 'withIcon';
-prx.types.android_listwithicon.dynamicProperties.blankItem.buttonicon = {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296"};
+prx.types.android_listwithicon.dynamicProperties.blankItem.buttonicon = {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg"};
 prx.types.android_listwithicon.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwithicon.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withIcon');
 prx.types.android_listwithicon.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwithicon.dynamicProperties.propertyGroups, 'itemtype', 'hiddenByDefault', true);
 prx.types.android_listwithicon.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwithicon.dynamicProperties.propertyGroups, 'buttonicon', 'hiddenByDefault', false);
@@ -3500,8 +3476,8 @@ prx.componentsHelper.removeProperties(prx.types.android_listwiththumbnail.proper
 prx.componentsHelper.removeProperties(prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups, ['buttonicon','itemtype']);
 prx.types.android_listwiththumbnail.dynamicProperties.blankItem = prx.componentsHelper.removeObjMembers(prx.types.android_listwiththumbnail.dynamicProperties.blankItem, ['buttonicon','checked']);
 prx.types.android_listwiththumbnail.dynamicProperties.blankItem.itemtype = 'withThumbnail';
-prx.types.android_listwithicon.dynamicProperties.blankItem.thumnail = {"fileId":"01eb56561388a5a9015bcab43ddeeab5.svg","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/01eb56561388a5a9015bcab43ddeeab5.svg","bucketsource":"main","name":" image_placeholder.svg"};
-prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withThumnail');
+prx.types.android_listwithicon.dynamicProperties.blankItem.thumbnail = {"fileId": "d310bece0e91b91b485ed62166d1fc2e.svg","assetType": "gallery","bucketsource": "main","name": " image_placeholder.svg"};
+prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withThumbnail');
 prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listwiththumbnail.dynamicProperties.propertyGroups, 'itemtype', 'hiddenByDefault', true);
 
 //TYPE = LIST WITH THUMBNAIL AND SUBTITLE
@@ -3513,7 +3489,7 @@ prx.types.android_listwiththumbnailandsubtitle.dynamicProperties.blankItem.subti
 prx.types.android_listradio = prx.componentsHelper.cloneobject(prx.types.android_listcomplex);
 prx.types.android_listradio.name = 'android_listradio';
 prx.types.android_listradio.dynamicProperties.blankItem.itemtype = 'withRadio';
-prx.types.android_listradio.dynamicProperties.blankItem.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+prx.types.android_listradio.dynamicProperties.blankItem.buttonicon = {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 prx.types.android_listradio.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listradio.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withRadio');
 prx.types.android_listradio.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listradio.dynamicProperties.propertyGroups, 'itemtype', 'hiddenByDefault', true);
 prx.types.android_listradio.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listradio.dynamicProperties.propertyGroups, 'checked', 'hiddenByDefault', false);
@@ -3522,7 +3498,7 @@ prx.types.android_listradio.dynamicProperties.propertyGroups = prx.componentsHel
 prx.types.android_listcheckbox = prx.componentsHelper.cloneobject(prx.types.android_listradio);
 prx.types.android_listcheckbox.name = 'android_listcheckbox';
 prx.types.android_listradio.dynamicProperties.blankItem.itemtype = 'withCheckbox';
-prx.types.android_listcheckbox.dynamicProperties.blankItem.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+prx.types.android_listcheckbox.dynamicProperties.blankItem.buttonicon = {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 prx.types.android_listcheckbox.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.android_listcheckbox.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withCheckbox');
 
 
@@ -3661,13 +3637,13 @@ prx.types.android_notification_item = {
 
 		cR += '<style>';
 		cR += '#' + _id + ' .android-notification-item-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; }';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			cR += '#' + _id + ' .android-notification-item-thumbnail { background-image: url('+prx.componentsHelper.getAssetUrl(item.thumbnail)+'); background-size: '+item.thumbnailSize*20+'% auto; background-color: '+prx.utils.getColor(item.thumbnailBgColor)+'; width: '+(dims.height)+'px; }'
 		}
 		cR += '#' + _id + ' .android-notification-item-title { color: '+prx.utils.getColor(item.titleColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.titleFont)+' font-size: '+item.titleSize+'px; '+_props+'}';
 		cR += '#' + _id + ' .android-notification-item-subtitle { color: '+prx.utils.getColor(item.subtitleColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.subtitleFont)+' font-size: '+item.subtitleSize+'px; '+_subtitle_props+'}';
 		cR += '#' + _id + ' .android-notification-item-time { color: '+prx.utils.getColor(item.timeColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.timeFont)+' font-size: '+item.timeSize+'px; font-weight: '+item.timeProperties+';}';
-		if(item.imgSrc.url != '') {
+		if(item.imgSrc.fileId != '') {
 		cR += '#' + _id + ' .android-notification-item-icon { background-image: url('+prx.componentsHelper.getAssetUrl(item.imgSrc)+'); background-size: '+item.iconSize*20+'% auto; }';
 		}
 		cR += '</style>';
@@ -3690,7 +3666,7 @@ prx.types.android_notification_item = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 		var _height = prx.componentsHelper.getRealDims(item).height;
 
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			$('#'+_id).find('.android-notification-item-thumbnail').width(_height)
 		}
 	}
@@ -3920,7 +3896,7 @@ prx.types.android_notification_item = {
 								name: 'thumbnail',
 								type: 'combo-asset',
 								displayValue: function(item,name) {
-									if(item.thumbnail.url == '') {
+									if(item.thumbnail.fileId == '') {
 			      						return 'No asset selected.';
 			      					}
 			      					return item.thumbnail.name;
@@ -3977,7 +3953,7 @@ prx.types.android_notification_item = {
 								name: 'imgSrc',
 								type: 'combo-asset',
 								displayValue: function(item,name) {
-									if(item.imgSrc.url == '') {
+									if(item.imgSrc.fileId == '') {
 			      						return 'No asset selected.';
 			      					}
 			      					return item.imgSrc.name;
@@ -4033,14 +4009,14 @@ prx.types.android_crouton = {
 		cR += '#' + _id + ' .android-crouton-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; }';
 		cR += '#' + _id + ' .android-crouton-text { color: '+prx.utils.getColor(item.textColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' font-size: '+item.textSize+'px; '+_props+'}';
 		cR += '#' + _id + ' .android-crouton-close-separator { background-color: '+prx.utils.getColor(item.separatorColor)+';}';
-		if(item.closeIcon.url != '') {
+		if(item.closeIcon.fileId != '') {
 			cR += '#' + _id + ' .android-crouton-close-icon { width: '+Math.floor(dims.height*0.35)+'px; height: '+Math.floor(dims.height*0.35)+'px; background-image: url('+prx.componentsHelper.getAssetUrl(item.closeIcon)+');}';
 		}
 		cR += '</style>';
 
 		cR += '<div class="android-crouton-wrapper liveUpdate-backgroundColor changeProperty-backgroundColor">';
 		cR += '<div class="android-crouton-text liveUpdate-textColor changeProperty-textColor changeProperty-textSize changeProperty-textFont actions-actions1"><span data-editableproperty="text">'+item.text+'</span></div>';
-		if(item.closeIcon.url != '') {
+		if(item.closeIcon.fileId != '') {
 			cR += '<div class="android-crouton-close actions-actions2">';
 			cR += '<span class="android-crouton-close-separator liveUpdate-separatorColor changeProperty-separatorColor"></span>';
 			cR += '<div class="android-crouton-close-icon"></div>';
@@ -4076,7 +4052,7 @@ prx.types.android_crouton = {
 				return item.actions2.length;
 			}
 			,hiddenByDefault: function(item) {
-				return (item.closeIcon.url == '');
+				return (item.closeIcon.fileId == '');
 			},
 			changeProperty: { caption: 'Right icon interactions', selector: '.actions-actions2', property: 'action', transitionable: false, changeable: false }
 		}
@@ -4137,7 +4113,7 @@ prx.types.android_crouton = {
 			  				transitionable: true
 			  			}
 			  			,hiddenByDefault: function(item) {
-							return (item.closeIcon.url == '');
+							return (item.closeIcon.fileId == '');
 						}
 	  		         }
   		         ]
@@ -4152,7 +4128,7 @@ prx.types.android_crouton = {
 						name: 'closeIcon',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.closeIcon.url == '') {
+							if(item.closeIcon.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.closeIcon.name;
@@ -4168,7 +4144,7 @@ prx.types.android_crouton = {
 	                		rerender: true
 	                	}
 						,onChange: function(item) {
-							if (item.closeIcon.url == '') {
+							if (item.closeIcon.fileId == '') {
 								$('#property-separatorColor, .interaction-property-group[data-action-property=actions1]').hide();
 							} else {
 								$('#property-separatorColor, .interaction-property-group[data-action-property=actions1]').show();
@@ -4198,7 +4174,7 @@ prx.types.android_card_small = {
 		cR += '<style>';
 		cR += '#' + _id + ' .android-small-card-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; box-shadow: 0 8px 6px -6px '+prx.utils.getColor(item.shadowColor)+'; }';
 		cR += '#' + _id + ' .android-small-card-text { color: '+prx.utils.getColor(item.textColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' font-size: '+item.textSize+'px; '+_props+'}';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			cR += '#' + _id + ' .android-small-card-thumbnail { background-image: url('+prx.componentsHelper.getAssetUrl(item.thumbnail)+'); background-size: '+item.thumbnailSize*20+'% auto; background-color: '+prx.utils.getColor(item.thumbnailBgColor)+'; width: '+dims.height+'px;}';
 		}
 		cR += '</style>';
@@ -4214,7 +4190,7 @@ prx.types.android_card_small = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 		var _height = prx.componentsHelper.getRealDims(item).height;
 
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			$('#'+_id).find('.android-small-card-thumbnail').width(_height)
 		}
 	}
@@ -4278,7 +4254,7 @@ prx.types.android_card_small = {
 						name: 'thumbnail',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.thumbnail.url == '') {
+							if(item.thumbnail.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.thumbnail.name;
@@ -4346,7 +4322,7 @@ prx.types.android_card_medium = {
 		cR += '<style>';
 		cR += '#' + _id + ' .android-medium-card-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; box-shadow: 0 8px 6px -6px '+prx.utils.getColor(item.shadowColor)+'; }';
 		cR += '#' + _id + ' .android-medium-card-text { color: '+prx.utils.getColor(item.textColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' font-size: '+item.textSize+'px; '+_props+'}';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			cR += '#' + _id + ' .android-medium-card-thumbnail { background-image: url('+prx.componentsHelper.getAssetUrl(item.thumbnail)+'); background-size: '+item.thumbnailSize*20+'% auto; background-color: '+prx.utils.getColor(item.thumbnailBgColor)+'; width: '+dims.width+'px; height: '+dims.width+'px;}';
 		}
 		cR += '</style>';
@@ -4447,7 +4423,7 @@ prx.types.android_card_medium = {
 						name: 'thumbnail',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.thumbnail.url == '') {
+							if(item.thumbnail.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.thumbnail.name;
@@ -4565,7 +4541,7 @@ prx.types.android_card_big = {
 		cR += '#' + _id + ' .android-big-card-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; box-shadow: 0 '+(8*prx.componentsHelper.getScale(item.lib))+'px '+(6*prx.componentsHelper.getScale(item.lib))+'px -'+(6*prx.componentsHelper.getScale(item.lib))+'px '+prx.utils.getColor(item.shadowColor)+'; }';
 		cR += '#' + _id + ' .android-big-card-title { color: '+prx.utils.getColor(item.titleColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.titleFont)+' font-size: '+item.titleSize+'px; '+_props+'}';
 		cR += '#' + _id + ' .android-big-card-subtitle { color: '+prx.utils.getColor(item.subtitleColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.subtitleFont)+' font-size: '+item.subtitleSize+'px; '+_subtitle_props+'}';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			cR += '#' + _id + ' .android-big-card-thumbnail { background-image: url('+prx.componentsHelper.getAssetUrl(item.thumbnail)+'); background-size: '+item.thumbnailSize*20+'% auto; background-color: '+prx.utils.getColor(item.thumbnailBgColor)+'; width: '+dims.height+'px; height: '+dims.height+'px;}';
 		}
 		cR += '</style>';
@@ -4785,7 +4761,7 @@ prx.types.android_card_big = {
 						name: 'thumbnail',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.thumbnail.url == '') {
+							if(item.thumbnail.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.thumbnail.name;
@@ -5062,7 +5038,7 @@ prx.types.android_progressbasic = {
 		cR += '<div id="'+_id+'" class="box pos type-android-progress-basic '+((item.isDownloading) ? '' : 'estimation') +'">';
 
 		cR += '<style>';
-		if(item.cancelIcon.url != '') {
+		if(item.cancelIcon.fileId != '') {
 			cR += '#' + _id + ' .android-progress-basic-icon { background-image: url('+prx.componentsHelper.getAssetUrl(item.cancelIcon)+'); background-size: '+(item.iconSize*20)+'% auto; }';
 		}
 		cR += '#' + _id + ' .android-progress-basic-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; font-size: '+item.textSize+'px; }';
@@ -5112,7 +5088,7 @@ prx.types.android_progressbasic = {
 				return item.actions1.length;
 			}
 			,hiddenByDefault: function(item) {
-				return (item.cancelIcon.url == '');
+				return (item.cancelIcon.fileId == '');
 			}
 		}
 	]
@@ -5319,7 +5295,7 @@ prx.types.android_progressbasic = {
  						name: 'cancelIcon',
  						type: 'combo-asset',
  						displayValue: function(item,name) {
- 							if(item.cancelIcon.url == '') {
+ 							if(item.cancelIcon.fileId == '') {
  	      						return 'No asset selected.';
  	      					}
  	      					return item.cancelIcon.name;
@@ -5743,7 +5719,7 @@ prx.types.android_navigationbar = {
 						name: 'icon1',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(typeof(item.icon1) == "undefined" || item.icon1.url == '') {
+							if(typeof(item.icon1) == "undefined" || item.icon1.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.icon1.name;
@@ -5764,7 +5740,7 @@ prx.types.android_navigationbar = {
 						name: 'icon2',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(typeof(item.icon2) == "undefined" || item.icon2.url == '') {
+							if(typeof(item.icon2) == "undefined" || item.icon2.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.icon2.name;
@@ -5785,7 +5761,7 @@ prx.types.android_navigationbar = {
 						name: 'icon3',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(typeof(item.icon3) == "undefined" || item.icon3.url == '') {
+							if(typeof(item.icon3) == "undefined" || item.icon3.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.icon3.name;
@@ -5849,7 +5825,7 @@ prx.components.android_actionbar = {
 	,actionbarActionOverflowActions: []
 	,upCaret: false
 	,actionbarUpCaretActions: []
-	,upCaretIcon: { fileId: '3503b8461203597c38b16ccb6c03e2c2.png', folderId: 'f1333968402101', url: 'f1333968402101/3503b8461203597c38b16ccb6c03e2c2.png', assetType: 'gallery', name: ' 1-navigation-previous-item.png' }
+	,upCaretIcon: {"fileId":"519288946855fcc7a883c2126ead391a.png","assetType":"gallery","bucketsource":"main","name":" 1-navigation-previous-item.png"}
 	,upCaretIconSize: 3
 	,overlay: false
 }
@@ -5875,7 +5851,7 @@ prx.components.android_actionbar_contextual = {
 	,textSize: 16*prx.componentsHelper.getScale(_library)
 	,textProperties: []
 	,textColor: '000000'
-	,selectionIcon: { fileId: '9aeee79e2e0c84d4ed7afd5600c3f3d6.png', folderId: 'f1333968402101', url: 'f1333968402101/9aeee79e2e0c84d4ed7afd5600c3f3d6.png', assetType: 'gallery', name: ' 1-navigation-accept.png' }
+	,selectionIcon: {"fileId":"7a5858418289efefb5e782c452ddf5de.png","assetType":"gallery","bucketsource":"main","name":" 1-navigation-accept.png"}
 	,selectionIconSize: 3
 	,overlay: false
 }
@@ -5982,12 +5958,12 @@ prx.components.android_dropdown = {
 	,options: [
        {
     	   text: "Label 1"
-    	   ,icon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,icon: {"fileId":"","name":"","assetType":"icon","url":""}
 		   ,actions: []
     	}
        ,{
     	   text: "Label 2"
-		   ,icon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+		   ,icon: {"fileId":"","name":"","assetType":"icon","url":""}
 		   ,actions: []
 		}
        ]
@@ -6013,13 +5989,7 @@ prx.components.android_button = {
 	,textProperties: []
 	,shadowColor: '999999'
 	,iconpos: ''
-	,buttonicon: {
-		fileId: '',
-		folderId: '',
-		url: '',
-		assetType: '',
-		name: ''
-	}
+	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 	,iconSize: 3
 	,actions: []
 }
@@ -6042,13 +6012,7 @@ prx.components.android_borderlessbutton = {
 	,textProperties: []
 	,shadowColor: 'transparent'
 	,iconpos: ''
-	,buttonicon: {
-		fileId: '',
-		folderId: '',
-		url: '',
-		assetType: '',
-		name: ''
-	}
+	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 	,iconSize: 3
 	,actions: []
 }
@@ -6318,8 +6282,8 @@ prx.components.android_listcomplex = {
             	 text: "Label 1"
         		 ,itemtype: 'basic'
     			 ,subtitle: ''
-				 ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-             	 ,buttonicon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+				 ,thumbnail: {"fileId":"","name":"","assetType":""}
+             	 ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
              	 ,actions: []
              	 ,checked: false
           	}
@@ -6327,8 +6291,8 @@ prx.components.android_listcomplex = {
             	text: "Label 2"
         		,itemtype: 'basic'
     			,subtitle: ''
-				,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-            	,buttonicon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+				,thumbnail: {"fileId":"","name":"","assetType":""}
+            	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
             	,actions: []
         		,checked: false
       		}
@@ -6368,8 +6332,8 @@ prx.components.android_listbasic = {
             	 text: "Label 1"
         		 ,itemtype: 'basic'
     			 ,subtitle: ''
-				 ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-             	 ,buttonicon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+				 ,thumbnail: {"fileId":"","name":"","assetType":""}
+             	 ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
              	 ,actions: []
          		 ,checked: false
           	}
@@ -6377,8 +6341,8 @@ prx.components.android_listbasic = {
             	text: "Label 2"
         		,itemtype: 'basic'
     			,subtitle: ''
-				,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-            	,buttonicon: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+				,thumbnail: {"fileId":"","name":"","assetType":""}
+            	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
             	,actions: []
         		,checked: false
       		}
@@ -6418,8 +6382,8 @@ prx.components.android_listwithicon = {
             	 text: "Label 1"
         		 ,itemtype: 'withIcon'
     			 ,subtitle: ''
-				 ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-             	 ,buttonicon: {"fileId":"693bf32e7424f6bf747696ddab19cdf5.svg","name":"speech-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/693bf32e7424f6bf747696ddab19cdf5.svg","folderId":"f1352971179296"}
+				 ,thumbnail: {"fileId":"","name":"","assetType":""}
+             	 ,buttonicon: {"fileId":"7442ef9302786f7fdc3c263aca9cdab8.svg","name":"speech-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/693bf32e7424f6bf747696ddab19cdf5.svg"}
              	 ,actions: []
          		 ,checked: false
           	}
@@ -6427,8 +6391,8 @@ prx.components.android_listwithicon = {
             	text: "Label 2"
         		,itemtype: 'withIcon'
     			,subtitle: ''
-				,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-            	,buttonicon: {"fileId":"eb72ee7a19eba5a21595c680452907fd.svg","name":"phone-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/eb72ee7a19eba5a21595c680452907fd.svg","folderId":"f1352971179296"}
+				,thumbnail: {"fileId":"","name":"","assetType":""}
+            	,buttonicon: {"fileId":"a856a143ecd33bf92cb80b9f0f27249b.svg","name":"phone-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/eb72ee7a19eba5a21595c680452907fd.svg"}
             	,actions: []
         		,checked: false
       		}
@@ -6467,18 +6431,18 @@ prx.components.android_listwithiconandsubtitle = {
              {
             	 text: "Label 1"
         		 ,itemtype: 'withIcon'
-    			 ,subtitle: 'Subtitle'
-				 ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-             	 ,buttonicon: {"fileId":"693bf32e7424f6bf747696ddab19cdf5.svg","name":"speech-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/693bf32e7424f6bf747696ddab19cdf5.svg","folderId":"f1352971179296"}
+    			 ,subtitle: ''
+				 ,thumbnail: {"fileId":"","name":"","assetType":""}
+             	 ,buttonicon: {"fileId":"7442ef9302786f7fdc3c263aca9cdab8.svg","name":"speech-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/693bf32e7424f6bf747696ddab19cdf5.svg"}
              	 ,actions: []
-             	 ,checked: false
+         		 ,checked: false
           	}
             ,{
             	text: "Label 2"
         		,itemtype: 'withIcon'
-    			,subtitle: 'Subtitle'
-				,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-            	,buttonicon: {"fileId":"eb72ee7a19eba5a21595c680452907fd.svg","name":"phone-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/eb72ee7a19eba5a21595c680452907fd.svg","folderId":"f1352971179296"}
+    			,subtitle: ''
+				,thumbnail: {"fileId":"","name":"","assetType":""}
+            	,buttonicon: {"fileId":"a856a143ecd33bf92cb80b9f0f27249b.svg","name":"phone-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/eb72ee7a19eba5a21595c680452907fd.svg"}
             	,actions: []
         		,checked: false
       		}
@@ -6518,8 +6482,8 @@ prx.components.android_listwithsubtitle = {
             	 text: "Label 1"
         		 ,itemtype: 'withSubtitle'
     			 ,subtitle: 'Subtitle'
-    			 ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-             	 ,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			 ,thumbnail: {"fileId":"","name":"","assetType":""}
+             	 ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
              	 ,actions: []
              	 ,checked: false
           	}
@@ -6527,8 +6491,8 @@ prx.components.android_listwithsubtitle = {
             	text: "Label 2"
         		,itemtype: 'withSubtitle'
     			,subtitle: 'Subtitle'
-    			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-            	,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			,thumbnail: {"fileId":"","name":"","assetType":""}
+            	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
             	,actions: []
         		,checked: false
       		}
@@ -6568,8 +6532,8 @@ prx.components.android_listwiththumbnail = {
             	 text: "Label 1"
         		 ,itemtype: 'withThumbnail'
     			 ,subtitle: ''
-    			 ,thumbnail: {"fileId":"8ef69ccff0f6e97618dde27ce903cb15.png","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/8ef69ccff0f6e97618dde27ce903cb15.png","bucketsource":"main","name":" avatar_female.png"}
-             	 ,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			 ,thumbnail: {"fileId":"a338528b56a2f91841e8b97b1dd11fd9.png","assetType":"gallery","bucketsource":"main","name":" avatar_female.png"}
+             	 ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
              	 ,actions: []
          		 ,checked: false
           	}
@@ -6577,8 +6541,8 @@ prx.components.android_listwiththumbnail = {
             	text: "Label 2"
         		,itemtype: 'withThumbnail'
     			,subtitle: ''
-    			,thumbnail: {"fileId":"fb6f0d79ca71fc442563cdb95fa60eb6.png","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/fb6f0d79ca71fc442563cdb95fa60eb6.png","bucketsource":"main","name":" avatar_male.png"}
-            	,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			,thumbnail: {"fileId":"d895dfbae1165e530658e11f649bc02c.png","assetType":"gallery","bucketsource":"main","name":" avatar_male.png"}
+            	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
             	,actions: []
         		,checked: false
       		}
@@ -6617,18 +6581,18 @@ prx.components.android_listwiththumbnailandsubtitle = {
              {
             	 text: "Label 1"
         		 ,itemtype: 'withThumbnail'
-    			 ,subtitle: 'Subtitle'
-    			 ,thumbnail: {"fileId":"8ef69ccff0f6e97618dde27ce903cb15.png","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/8ef69ccff0f6e97618dde27ce903cb15.png","bucketsource":"main","name":" avatar_female.png"}
-             	 ,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			 ,subtitle: ''
+    			 ,thumbnail: {"fileId":"a338528b56a2f91841e8b97b1dd11fd9.png","assetType":"gallery","bucketsource":"main","name":" avatar_female.png"}
+             	 ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
              	 ,actions: []
          		 ,checked: false
           	}
             ,{
             	text: "Label 2"
         		,itemtype: 'withThumbnail'
-    			,subtitle: 'Subtitle'
-				,thumbnail: {"fileId":"fb6f0d79ca71fc442563cdb95fa60eb6.png","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/fb6f0d79ca71fc442563cdb95fa60eb6.png","bucketsource":"main","name":" avatar_male.png"}
-            	,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    			,subtitle: ''
+    			,thumbnail: {"fileId":"d895dfbae1165e530658e11f649bc02c.png","assetType":"gallery","bucketsource":"main","name":" avatar_male.png"}
+            	,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
             	,actions: []
         		,checked: false
       		}
@@ -6668,8 +6632,8 @@ prx.components.android_listradio = {
 			text: "Label 1"
 			,itemtype: 'withRadio'
 			,subtitle: ''
-	  		,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-  			,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+	  		,thumbnail: {"fileId":"","name":"","assetType":""}
+  			,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
   			,actions: []
 			,checked: true
        },
@@ -6677,8 +6641,8 @@ prx.components.android_listradio = {
 			text: "Label 2"
 			,itemtype: 'withRadio'
 			,subtitle: ''
-	  		,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-  			,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+	  		,thumbnail: {"fileId":"","name":"","assetType":""}
+  			,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
   			,actions: []
 			,checked: false
        }
@@ -6715,25 +6679,23 @@ prx.components.android_listcheckbox = {
 	,iconSize: 2
 	,listitems: [
        {
-    	   	text: "Label 1"
-   			,itemtype: 'withCheckbox'
-   			,subtitle: ''
-   	  		,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-  			,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+			text: "Label 1"
+			,itemtype: 'withRadio'
+			,subtitle: ''
+	  		,thumbnail: {"fileId":"","name":"","assetType":""}
+  			,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
   			,actions: []
-   			,checked: true
-
+			,checked: true
        },
        {
-   	   	text: "Label 2"
-  			,itemtype: 'withCheckbox'
-  			,subtitle: ''
-  			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-  			,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+			text: "Label 2"
+			,itemtype: 'withRadio'
+			,subtitle: ''
+	  		,thumbnail: {"fileId":"","name":"","assetType":""}
+  			,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
   			,actions: []
-  			,checked: true
-
-      }
+			,checked: false
+       }
     ]
     ,dynamicSizeExpand: 'v'
 }
@@ -6788,10 +6750,10 @@ prx.components.android_notification_item = {
 	,time: '10:30 AM'
 	,backgroundColor: '000000'
 
-	,thumbnail: {"fileId":"0169fbe3ff05191054bf13a07fa2ba16.svg","name":"android.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/0169fbe3ff05191054bf13a07fa2ba16.svg","folderId":"f1352971179296","targetSrc":"generated/0169fbe3ff05191054bf13a07fa2ba16_ffffff.svg","color":"ffffff"}
+	,thumbnail: {"fileId":"6ab28ab56585cbe72c1510484ea2663f.svg","name":"android.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/0169fbe3ff05191054bf13a07fa2ba16.svg","targetSrc":"generated/0169fbe3ff05191054bf13a07fa2ba16_ffffff.svg","color":"ffffff"}
 	,thumbnailSize: "4"
 	,thumbnailBgColor: "ccc"
-	,imgSrc: {"fileId":"8ed737a2b80a3f4c51dd7ee2403078eb.svg","name":"speech-alt-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/8ed737a2b80a3f4c51dd7ee2403078eb.svg","folderId":"f1352971179296","targetSrc":"generated/8ed737a2b80a3f4c51dd7ee2403078eb_ffffff.svg","color":"ffffff"}
+	,imgSrc: {"fileId":"2ee5b2a76356f95c63a4e4e2e87af952.svg","name":"speech-alt-1.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/8ed737a2b80a3f4c51dd7ee2403078eb.svg","targetSrc":"generated/8ed737a2b80a3f4c51dd7ee2403078eb_ffffff.svg","color":"ffffff"}
 	,iconSize: "3"
 }
 
@@ -6813,7 +6775,7 @@ prx.components.android_crouton = {
 	,text: 'This is a crouton message'
 	,backgroundColor: 'cc0000'
 	,separatorColor: 'ffffff'
-	,closeIcon: {"fileId":"ca104a30a743e00e890a864e19c7738d.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","folderId":"f1352449307873","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_ffffff.svg","color":"ffffff"}
+	,closeIcon: {"fileId":"611ea5d4cbd5f2048756a376c6cbbe40.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_ffffff.svg","color":"ffffff"}
 }
 
 prx.components.android_card_small = {
@@ -6834,7 +6796,7 @@ prx.components.android_card_small = {
 		,text: 'Small card'
 		,backgroundColor: 'ffffff'
 		,shadowColor: 'dddddd'
-		,thumbnail: {"fileId":"0169fbe3ff05191054bf13a07fa2ba16.svg","name":"android.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/0169fbe3ff05191054bf13a07fa2ba16.svg","folderId":"f1352971179296","targetSrc":"generated/0169fbe3ff05191054bf13a07fa2ba16_ffffff.svg","color":"ffffff"}
+		,thumbnail: {"fileId":"06144cf4a46900079d0e8fda32de8226.svg","name":"android.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/0169fbe3ff05191054bf13a07fa2ba16.svg","targetSrc":"generated/0169fbe3ff05191054bf13a07fa2ba16_ffffff.svg","color":"ffffff"}
 		,thumbnailSize: "4"
 		,thumbnailBgColor: "E2E2E2"
 }
@@ -6857,7 +6819,7 @@ prx.components.android_card_medium = {
 		,text: 'Medium card'
 		,backgroundColor: 'ffffff'
 		,shadowColor: 'dddddd'
-		,thumbnail: {"fileId":"01eb56561388a5a9015bcab43ddeeab5.svg","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/01eb56561388a5a9015bcab43ddeeab5.svg","bucketsource":"main","name":" image_placeholder.svg"}
+		,thumbnail: {"fileId": "d310bece0e91b91b485ed62166d1fc2e.svg","assetType": "gallery","bucketsource": "main","name": " image_placeholder.svg"}
 		,thumbnailSize: "4"
 		,thumbnailBgColor: "E2E2E2"
 		,actionOverflow: true
@@ -6887,7 +6849,7 @@ prx.components.android_card_big = {
 		,subtitle: 'Big card Subtitle'
 		,backgroundColor: 'ffffff'
 		,shadowColor: 'dddddd'
-		,thumbnail: {"fileId":"01eb56561388a5a9015bcab43ddeeab5.svg","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/01eb56561388a5a9015bcab43ddeeab5.svg","bucketsource":"main","name":" image_placeholder.svg"}
+		,thumbnail: {"fileId": "d310bece0e91b91b485ed62166d1fc2e.svg","assetType": "gallery","bucketsource": "main","name": " image_placeholder.svg"}
 		,thumbnailSize: "4"
 		,thumbnailBgColor: "E2E2E2"
 		,actionOverflow: true
@@ -6954,7 +6916,7 @@ prx.components.android_progressbasic = {
 		,percentBarBackgroundColor: '27A1CA'
 		,percentBarValue : "36"
 		,iconSize: "2"
-		,cancelIcon: {"fileId":"ca104a30a743e00e890a864e19c7738d.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","folderId":"f1352449307873","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_7a7a7a.svg","color":"7A7A7A"}
+		,cancelIcon: {"fileId":"611ea5d4cbd5f2048756a376c6cbbe40.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_7a7a7a.svg","color":"7A7A7A"}
 		,isDownloading: true
 }
 
@@ -6979,7 +6941,7 @@ prx.components.android_progressestimating = {
 		,bgBarBackgroundColor: '27A1CA'
 		,cubesColor: 'ffffff'
 		,iconSize: "2"
-		,cancelIcon: {"fileId":"ca104a30a743e00e890a864e19c7738d.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","folderId":"f1352449307873","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_7a7a7a.svg","color":"7A7A7A"}
+		,cancelIcon: {"fileId":"611ea5d4cbd5f2048756a376c6cbbe40.svg","name":"delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/ca104a30a743e00e890a864e19c7738d.svg","targetSrc":"generated/ca104a30a743e00e890a864e19c7738d_7a7a7a.svg","color":"7A7A7A"}
 		,isDownloading: false
 }
 
@@ -7010,7 +6972,7 @@ prx.components.android_navigationbar = {
 	,resizable : true
 	,overlay: false
 	,backgroundColor: '000000'
-	,icon1: {"fileId":"f62aedc955740902e4763fb37dbef2c7.svg","name":"android-navbar-back.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/f62aedc955740902e4763fb37dbef2c7.svg","folderId":"f1352449307873","targetSrc":"generated/f62aedc955740902e4763fb37dbef2c7_aaaaaa.svg","color":"AAAAAA"}
-	,icon2: {"fileId":"aa38d28df6f7726351fcb80ea90550dc.svg","name":"android-navbar-home.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/aa38d28df6f7726351fcb80ea90550dc.svg","folderId":"f1352449307873","targetSrc":"generated/aa38d28df6f7726351fcb80ea90550dc_aaaaaa.svg","color":"AAAAAA"}
-	,icon3: {"fileId":"0114277296a89969ff00ca95c131e302.svg","name":"android-navbar-system.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/0114277296a89969ff00ca95c131e302.svg","folderId":"f1352449307873","targetSrc":"generated/0114277296a89969ff00ca95c131e302_aaaaaa.svg","color":"AAAAAA"}
+	,icon1: {"fileId":"a6807569868edf0cc93333bf8b56f474.svg","name":"android-navbar-back.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/f62aedc955740902e4763fb37dbef2c7.svg","targetSrc":"generated/f62aedc955740902e4763fb37dbef2c7_aaaaaa.svg","color":"AAAAAA"}
+	,icon2: {"fileId":"df2859c6f3fe01b16bee616a9624a35e.svg","name":"android-navbar-home.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/aa38d28df6f7726351fcb80ea90550dc.svg","targetSrc":"generated/aa38d28df6f7726351fcb80ea90550dc_aaaaaa.svg","color":"AAAAAA"}
+	,icon3: {"fileId":"74b4f34eaab53baf82346f56334faaef.svg","name":"android-navbar-system.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/0114277296a89969ff00ca95c131e302.svg","targetSrc":"generated/0114277296a89969ff00ca95c131e302_aaaaaa.svg","color":"AAAAAA"}
 }

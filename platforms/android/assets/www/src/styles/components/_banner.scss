@@ -1,0 +1,25 @@
+#banner {
+	padding: 46px 0;
+	font-size: 25px;
+	font-weight: 100;
+	text-align: center;
+
+	.home & {
+		background: $home_color;
+	}
+
+	.learning & {
+		background: $learning_color;
+		color: #fff;
+	}
+
+	.community & {
+		background: $community_color;
+		color: #fff;
+	}
+
+	.profile & {
+		background: $profile_color;
+		color: #fff;
+	}
+}

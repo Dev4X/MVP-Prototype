@@ -1,0 +1,69 @@
+#footer {
+	background: #0d0d0d;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	bottom: 0;
+	box-sizing: border-box;
+	color: #FFF;
+	left: 0;
+	height: 84px;
+	position: absolute;
+	width: 100%;
+
+	li, a {
+		display: inline-block;
+	}
+
+	li {
+		border-right: 1px solid #FFF;
+		box-sizing: border-box;
+		text-align: center;
+		width: 33.33%;
+
+		&:first-child {
+			border-left: 1px solid #FFF;
+		}
+	}
+
+	a {
+		background-position: top center;
+		background-repeat: no-repeat;
+		color: #FFF;
+		font-size: 20px;
+		font-weight: 100;
+		padding: 50px 0 12px 0;
+		text-decoration: none;
+		width: 100%;
+	}
+
+	.active a {
+		color: #0d0d0d;
+	}
+}
+
+#home_link a {
+	background-image: url(../images/home_icon.png);
+}
+
+	#home_link.active a {
+		background-color: $home_color;
+		background-image: url(../images/home_icon_active.png);
+	}
+
+#learning_link a {
+	background-image: url(../images/learning_icon.png);
+}
+
+	#learning_link.active a {
+		background-color: $learning_color;
+		background-image: url(../images/learning_icon_active.png);
+	}
+
+#community_link a {
+	background-image: url(../images/community_icon.png);
+}
+
+	#community_link.active a {
+		background-color: $community_color;
+		background-image: url(../images/community_icon_active.png);
+	}

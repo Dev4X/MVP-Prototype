@@ -54,7 +54,7 @@ prx.types.ios7_navbar_buttons = {
 		cR += '<div class="ios7-navbar-title liveUpdate-textColor changeProperty-textColor changeProperty-textSize changeProperty-textFont" data-editableproperty="title">'+item.title+'</div>';
 		if(item.type == "ios7_navbar_buttons" && item.leftBtnType != "none") {
 			cR += '<div class="ios7-navbar-button ios7-navbar-button-left ios7-navbar-button-left-'+item.leftBtnType+'">';
-			if((item.leftBtnType == "icon" || item.leftBtnType == "texticon") && item.leftBtnIcon.url != '') {
+			if((item.leftBtnType == "icon" || item.leftBtnType == "texticon") && item.leftBtnIcon.fileId != '') {
 				cR += '<img class="ios7-navbar-button-icon" src="'+prx.componentsHelper.getAssetUrl(item.leftBtnIcon)+'">';
 			}
 			if(item.leftBtnType == "text" || item.leftBtnType == "texticon") {
@@ -67,7 +67,7 @@ prx.types.ios7_navbar_buttons = {
 			if(item.rightBtnType == "text" || item.rightBtnType == "texticon") {
 				cR += '<div class="ios7-navbar-button-text liveUpdate-btnTextColor changeProperty-btnTextColor changeProperty-btnTextSize changeProperty-btnTextFont" data-editableproperty="rightBtnText">'+item.rightBtnText+'</div>';
 			}
-			if((item.rightBtnType == "icon" || item.rightBtnType == "texticon") && item.rightBtnIcon.url != '') {
+			if((item.rightBtnType == "icon" || item.rightBtnType == "texticon") && item.rightBtnIcon.fileId != '') {
 				cR += '<img class="ios7-navbar-button-icon" src="'+prx.componentsHelper.getAssetUrl(item.rightBtnIcon)+'">';
 			}
 			cR += '</div>';
@@ -315,7 +315,7 @@ prx.types.ios7_navbar_buttons = {
 						,name: 'leftBtnIcon'
 						,type: 'combo-asset'
 						,displayValue: function(item,name,index) {
-							if(item.leftBtnIcon.url == '') {
+							if(item.leftBtnIcon.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.leftBtnIcon.name;
@@ -376,7 +376,7 @@ prx.types.ios7_navbar_buttons = {
 						,name: 'rightBtnIcon'
 						,type: 'combo-asset'
 						,displayValue: function(item,name,index) {
-							if(item.rightBtnIcon.url == '') {
+							if(item.rightBtnIcon.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.rightBtnIcon.name;
@@ -447,8 +447,8 @@ prx.types.ios7_tabbar.propertyGroups = prx.componentsHelper.editProperty(prx.typ
 prx.types.ios7_tabbar.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_tabbar.propertyGroups, 'maskInactive', 'values', prx.comps.ios7Colors);
 prx.types.ios7_tabbar.dynamicProperties.blankItem = {
 	text: 'Label',
-	icon: {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_8f8f8f.svg","color":"8f8f8f"},
-	activeicon: {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_1b9af7.svg","color":"1b9af7"},
+	icon: {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_8f8f8f.svg","color":"8f8f8f"},
+	activeicon: {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_1b9af7.svg","color":"1b9af7"},
 	actions: []
 }
 
@@ -531,7 +531,7 @@ prx.types.ios7_toolbar = {
    		,addCaption: 'Add button'
    		,deleteCaption: 'Delete'
    		,blankItem: {
-			icon: {"fileId":"94a90bf9a645dba63ad7a41d18f82ea7.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","folderId":"f1352971179296","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_1b9af7.svg","color":"1b9af7"},
+			icon: {"fileId":"a764f2746aa43431594a25b3e9d5dc34.svg","name":"star.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/94a90bf9a645dba63ad7a41d18f82ea7.svg","targetSrc":"generated/94a90bf9a645dba63ad7a41d18f82ea7_1b9af7.svg","color":"1b9af7"},
    			actions: []
    		}
    		,interactions: [
@@ -556,7 +556,7 @@ prx.types.ios7_toolbar = {
       				,name: 'icon'
       				,type: 'combo-asset'
       				,displayValue: function(item,name,index) {
-      					if(item.buttons[index].icon.url == '') {
+      					if(item.buttons[index].icon.fileId == '') {
       						return 'No icon selected';
       					}
       					return item.buttons[index].icon.name;
@@ -800,7 +800,7 @@ prx.types.ios7_button_bg = {
 						,name: 'img'
 						,type: 'combo-asset'
 						,displayValue: function(item,name,index) {
-							if(item.img.url == '') {
+							if(item.img.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.img.name;
@@ -1565,7 +1565,7 @@ prx.types.ios7_checkbox = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 
 		if(!prx.editor) {
-			$('#'+_id+'-checkbox').change(function(){
+			$('#'+_id+'-checkbox').on('change.custom-change-event', function(e){
 				if(typeof(prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']) == "undefined") { prx.variables._triggerData['input:checked[id='+_id+'-checkbox]'] = {}; }
 		        prx.variables._triggerData['input:checked[id='+_id+'-checkbox]']['checkboxchange'] = { state: $(this).is(':checked') };
 		        if(typeof(prx.variables._triggerData['input[id='+_id+'-checkbox]:not(:checked)']) == "undefined") { prx.variables._triggerData['input[id='+_id+'-checkbox]:not(:checked)'] = {}; }
@@ -1666,7 +1666,7 @@ prx.types.ios7_checkbox = {
 						,name: 'img'
 						,type: 'combo-asset'
 						,displayValue: function(item,name,index) {
-							if(item.img.url == '') {
+							if(item.img.fileId == '') {
 								return 'No icon selected';
 							}
 							return item.img.name;
@@ -1746,7 +1746,7 @@ prx.types.ios7_switch = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 
 		if(!prx.editor) {
-			$('#'+_id+'-flipswitch').change(function(){
+			$('#'+_id+'-flipswitch').on('change.custom-change-event', function(e){
 				if(typeof(prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]']) == "undefined") { prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]'] = {}; }
 		        prx.variables._triggerData['input:checked[id='+_id+'-flipswitch]']['checkboxchange'] = { state: $(this).is(':checked') };
 		        if(typeof(prx.variables._triggerData['input[id='+_id+'-flipswitch]:not(:checked)']) == "undefined") { prx.variables._triggerData['input[id='+_id+'-flipswitch]:not(:checked)'] = {}; }
@@ -2419,7 +2419,7 @@ prx.types.ios8_searchbar = {
 		cR += '#'+_id+'  input { color: '+prx.utils.getColor(item.textColor)+'; font-size: '+item.textSize+'px; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' '+ _props + ' ;}';
 		cR += '#'+_id+' .ios8-searchbar-faux-input { background-color: '+prx.utils.getColor(item.backgroundColor)+'; color: '+prx.utils.getColor(item.textColor)+'; font-size: '+item.textSize+'px; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' line-height: '+_dims.height+'px; '+ _props + ' }';
 		cR += '#'+_id+' .ios8-searchbar-faux-input-overlay .placeholder-input, #'+_id+' .ios8-searchbar-input-overlay .placeholder-input { color: '+prx.utils.getColor(item.placeholderColor)+';  font-size: '+item.textSize+'px;}';
-		if(item.imgSrc.url != '') {
+		if(item.imgSrc.fileId != '') {
 			cR += '#' + _id + ' .ios8-searchbar-icon { width: '+item.textSize+'px; background-image: url('+prx.componentsHelper.getAssetUrl(item.imgSrc)+');}';
 			cR += '#' + _id + ' .ios8-searchbar-icon-faux { width: '+item.textSize+'px;}';
 		}
@@ -2429,20 +2429,20 @@ prx.types.ios8_searchbar = {
 
 		if(prx.editor) {
 			cR += '<div class="ios8-searchbar-input-flex liveUpdate-backgroundColor liveUpdate-borderColor changeProperty-backgroundColor  changeProperty-borderColor changeProperty-borderWidth changeProperty-borderRadius">';
-			if(item.imgSrc.url != '') {
+			if(item.imgSrc.fileId != '') {
 			cR += '<span class="ios8-searchbar-icon-faux"></span>';
 			}
 			cR += '<div class="ios8-searchbar-faux-input changeProperty-textColor changeProperty-textSize changeProperty-textFont" data-editableproperty="value">'+item.value+'</div>';
-			cR += '<div class="ios8-searchbar-faux-input-overlay liveUpdate-placeholderColor liveUpdate-backgroundColor">'+(item.imgSrc.url != '' ? '<span class="ios8-searchbar-icon"></span>': '')+'<span class="placeholder-input">'+item.placeholder+'</span></div>';
+			cR += '<div class="ios8-searchbar-faux-input-overlay liveUpdate-placeholderColor liveUpdate-backgroundColor">'+(item.imgSrc.fileId != '' ? '<span class="ios8-searchbar-icon"></span>': '')+'<span class="placeholder-input">'+item.placeholder+'</span></div>';
 			cR += '<span class="ios8-searchbar-icon-erase"></span>';
 			cR += '</div>';
 		} else {
 			cR += '<div class="ios8-searchbar-input-flex liveUpdate-backgroundColor liveUpdate-borderColor changeProperty-backgroundColor  changeProperty-borderColor changeProperty-borderWidth changeProperty-borderRadius">';
-			if(item.imgSrc.url != '') {
+			if(item.imgSrc.fileId != '') {
 			cR += '<span class="ios8-searchbar-icon-faux"></span>';
 			}
 			cR += '<input type="text" value="'+item.value+'" data-role="none" required class="real-input changeProperty-textColor changeProperty-textSize changeProperty-textFont" />';
-			cR += '<div class="ios8-searchbar-input-overlay">'+(item.imgSrc.url != '' ? '<span class="ios8-searchbar-icon"></span>': '')+'<span class="placeholder-input">'+item.placeholder+'</span></div>';
+			cR += '<div class="ios8-searchbar-input-overlay">'+(item.imgSrc.fileId != '' ? '<span class="ios8-searchbar-icon"></span>': '')+'<span class="placeholder-input">'+item.placeholder+'</span></div>';
 			cR += '<span class="ios8-searchbar-icon-erase"></span>';
 			cR += '</div>';
 		}
@@ -2453,7 +2453,7 @@ prx.types.ios8_searchbar = {
 		var _id = (!containerid) ? item.id : containerid+'-'+item.id;
 		var _dims = prx.componentsHelper.getRealDims(item,symbol);
 
-		if(item.imgSrc.url != '') {
+		if(item.imgSrc.fileId != '') {
 			$('#' + _id + ' .ios8-searchbar-icon, #' + _id + ' .ios8-searchbar-icon-faux').css('width', item.textSize+'px');
 		}
 		$('#'+_id).find('.ios8-searchbar-icon-erase').css('width', (_dims.height*0.4)+'px')
@@ -2593,7 +2593,7 @@ prx.types.ios8_searchbar = {
 						name: 'imgSrc',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.imgSrc.url == '') {
+							if(item.imgSrc.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.imgSrc.name;
@@ -2655,7 +2655,7 @@ prx.types.ios7_listcomplex = {
 
 		var hasThumbs = false;
 		for(var i=0;i<item.listitems.length;i++) {
-			if(typeof(item.listitems[i].thumbnail) != "undefined" && item.listitems[i].thumbnail.url != '') {
+			if(typeof(item.listitems[i].thumbnail) != "undefined" && item.listitems[i].thumbnail.fileId != '') {
 				hasThumbs = true;
 				break;
 			}
@@ -2686,7 +2686,7 @@ prx.types.ios7_listcomplex = {
 
 			var icon = '';
 			if(elm.itemtype == 'nested' || elm.itemtype == 'checkbox' || elm.itemtype == 'radio' || elm.itemtype == 'nestedWithValue' || elm.itemtype == 'withIcon' || elm.itemtype == 'withIconAndValue' || elm.itemtype == 'nestedWithBadge' || elm.itemtype == 'withIconAndBadge' || elm.itemtype == 'nestedWithBadgeAndValue') {
-				icon = '<div class="ios7-list-icon ios7-list-icon-'+item.iconpos+'" '+((typeof (elm.buttonicon) != "undefined" && elm.buttonicon.url != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.buttonicon)+');"' : '' ) + '></div>';
+				icon = '<div class="ios7-list-icon ios7-list-icon-'+item.iconpos+'" '+((typeof (elm.buttonicon) != "undefined" && elm.buttonicon.fileId != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.buttonicon)+');"' : '' ) + '></div>';
 			}
 
 			cR += '<div id="'+_id+'-listitems-'+i+'" class="dynamic-property ios7-list-listitem ios7-list-listitem-type-'+elm.itemtype+'" data-dynamic-property-index="'+i+'">';
@@ -2699,7 +2699,7 @@ prx.types.ios7_listcomplex = {
 			if(item.iconpos == "left") { cR += icon; }
 
 			if(hasThumbs) {
-				cR += '<div class="ios7-list-thumb" '+((typeof(elm.thumbnail) != "undefined" && elm.thumbnail.url != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.thumbnail)+');"' : '') + '></div>';
+				cR += '<div class="ios7-list-thumb" '+((typeof(elm.thumbnail) != "undefined" && elm.thumbnail.fileId != '') ? 'style="background-image: url('+ prx.componentsHelper.getAssetUrl(elm.thumbnail)+');"' : '') + '></div>';
 			}
 
 			cR += '<div class="bordered-container liveUpdate-borderColor">';
@@ -3148,20 +3148,8 @@ prx.types.ios7_listcomplex = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: {
-				fileId: '',
-				folderId: '',
-				url: '',
-				assetType: '',
-				name: ''
-			}
-			,buttonicon: {
-				fileId: '',
-				folderId: '',
-				url: '',
-				assetType: 'icon',
-				name: ''
-			},
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""},
 			checked: false,
 			actions: []
 		}
@@ -3290,19 +3278,19 @@ prx.types.ios7_listcomplex = {
 								case 'withIcon':
 								case 'withIconAndValue':
 								case 'withIconAndBadge':
-									item.buttonicon = { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' };
+									item.buttonicon = {"fileId":"","name":"","assetType":"icon","url":""};
 									return item;
 									break;
 								case 'nested':
 								case 'nestedWithValue':
 								case 'nestedWithBadge':
 								case 'nestedWithBadgeAndValue':
-									item.buttonicon = {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
+									item.buttonicon = {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
 									return item;
 									break;
 								case 'checkbox':
 								case 'radio':
-									item.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+									item.buttonicon = {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 									return item;
 									break;
 								case 'withValue':
@@ -3336,7 +3324,7 @@ prx.types.ios7_listcomplex = {
 							,name: 'thumbnail'
 							,type: 'combo-asset'
 							,displayValue: function(item,name,index) {
-								if(typeof(item.listitems[index].thumbnail) == 'undefined' || item.listitems[index].thumbnail.url == '') {
+								if(typeof(item.listitems[index].thumbnail) == 'undefined' || item.listitems[index].thumbnail.fileId == '') {
 									return 'No thumbnail selected';
 								}
 								return item.listitems[index].thumbnail.name;
@@ -3364,7 +3352,7 @@ prx.types.ios7_listcomplex = {
 							,name: 'buttonicon'
 							,type: 'combo-asset'
 							,displayValue: function(item,name,index) {
-								if(item.listitems[index].buttonicon.url == '') {
+								if(item.listitems[index].buttonicon.fileId == '') {
 									return 'No icon selected';
 								}
 								return item.listitems[index].buttonicon.name;
@@ -3419,7 +3407,7 @@ prx.componentsHelper.removeProperties(prx.types.ios7_listnested.propertyGroups, 
 prx.componentsHelper.removeProperties(prx.types.ios7_listnested.dynamicProperties.propertyGroups, ['itemtype', 'value', 'badgeText']);
 prx.types.ios7_listnested.dynamicProperties.blankItem = prx.componentsHelper.removeObjMembers(prx.types.ios7_listnested.dynamicProperties.blankItem, ['value', 'checked', 'badgeText']);
 prx.types.ios7_listnested.dynamicProperties.blankItem.itemtype = 'nested';
-prx.types.ios7_listnested.dynamicProperties.blankItem.buttonicon = {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
+prx.types.ios7_listnested.dynamicProperties.blankItem.buttonicon = {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
 prx.types.ios7_listnested.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnested.dynamicProperties.propertyGroups, 'itemtype', 'value', 'nested');
 prx.types.ios7_listnested.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnested.dynamicProperties.propertyGroups, 'itemtype', 'hiddenByDefault', true);
 prx.types.ios7_listnested.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnested.dynamicProperties.propertyGroups, 'buttonicon', 'hiddenByDefault', false);
@@ -3437,7 +3425,7 @@ prx.types.ios7_listbasic.dynamicProperties.propertyGroups = prx.componentsHelper
 prx.types.ios7_listwithicon = prx.componentsHelper.cloneobject(prx.types.ios7_listnested);
 prx.types.ios7_listwithicon.name = 'ios7_listwithicon';
 prx.types.ios7_listwithicon.dynamicProperties.blankItem.itemtype = 'withIcon';
-prx.types.ios7_listwithicon.dynamicProperties.blankItem.buttonicon = { fileId: '', folderId: '', url: '', assetType: '', name: '' };;
+prx.types.ios7_listwithicon.dynamicProperties.blankItem.buttonicon = {"fileId":"","name":"","assetType":"icon","url":""};
 prx.types.ios7_listwithicon.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listwithicon.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withIcon');
 
 // TYPE = LISTWITHICONANDVALUE
@@ -3456,7 +3444,7 @@ prx.types.ios7_listwithiconandvalue.dynamicProperties.propertyGroups = prx.compo
 prx.types.ios7_listnestedwithvalue = prx.componentsHelper.cloneobject(prx.types.ios7_listwithiconandvalue);
 prx.types.ios7_listnestedwithvalue.name = 'ios7_listnestedwithvalue';
 prx.types.ios7_listnestedwithvalue.dynamicProperties.blankItem.itemtype = 'nestedWithValue';
-prx.types.ios7_listnestedwithvalue.dynamicProperties.blankItem.buttonicon = {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
+prx.types.ios7_listnestedwithvalue.dynamicProperties.blankItem.buttonicon = {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
 prx.types.ios7_listnestedwithvalue.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnestedwithvalue.dynamicProperties.propertyGroups, 'itemtype', 'value', 'nestedWithValue');
 
 // TYPE = LISTWITHVALUE
@@ -3475,7 +3463,7 @@ prx.componentsHelper.removeProperties(prx.types.ios7_listnestedwithbadge.propert
 prx.componentsHelper.removeProperties(prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups, ['itemtype', 'value', 'checked']);
 prx.types.ios7_listnestedwithbadge.dynamicProperties.blankItem = prx.componentsHelper.removeObjMembers(prx.types.ios7_listnestedwithbadge.dynamicProperties.blankItem, ['value', 'checked']);
 prx.types.ios7_listnestedwithbadge.dynamicProperties.blankItem.itemtype = 'nestedWithBadge';
-prx.types.ios7_listnestedwithbadge.dynamicProperties.blankItem.buttonicon = {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
+prx.types.ios7_listnestedwithbadge.dynamicProperties.blankItem.buttonicon = {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"};
 prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups, 'itemtype', 'value', 'nestedWithBadge');
 prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups, 'itemtype', 'hiddenByDefault', true);
 prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups, 'buttonicon', 'hiddenByDefault', false);
@@ -3484,7 +3472,7 @@ prx.types.ios7_listnestedwithbadge.dynamicProperties.propertyGroups = prx.compon
 prx.types.ios7_listwithiconandbadge = prx.componentsHelper.cloneobject(prx.types.ios7_listnestedwithbadge);
 prx.types.ios7_listwithiconandbadge.name = 'ios7_listwithiconandbadge';
 prx.types.ios7_listwithiconandbadge.dynamicProperties.blankItem.itemtype = 'withIconAndBadge';
-prx.types.ios7_listwithiconandbadge.dynamicProperties.blankItem.buttonicon = { fileId: '', folderId: '', url: '', assetType: '', name: '' };
+prx.types.ios7_listwithiconandbadge.dynamicProperties.blankItem.buttonicon = {"fileId":"","name":"","assetType":"icon","url":""};
 prx.types.ios7_listwithiconandbadge.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listwithiconandbadge.dynamicProperties.propertyGroups, 'itemtype', 'value', 'withIconAndBadge');
 
 
@@ -3501,14 +3489,14 @@ prx.types.ios7_listwithbadge.dynamicProperties.propertyGroups = prx.componentsHe
 prx.types.ios7_listradio = prx.componentsHelper.cloneobject(prx.types.ios7_listnested);
 prx.types.ios7_listradio.name = 'ios7_listradio';
 prx.types.ios7_listradio.dynamicProperties.blankItem.itemtype = 'radio';
-prx.types.ios7_listradio.dynamicProperties.blankItem.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+prx.types.ios7_listradio.dynamicProperties.blankItem.buttonicon = {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 prx.types.ios7_listradio.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listradio.dynamicProperties.propertyGroups, 'itemtype', 'value', 'radio');
 
 //TYPE = LISTCHECKBOX
 prx.types.ios7_listcheckbox = prx.componentsHelper.cloneobject(prx.types.ios7_listradio);
 prx.types.ios7_listcheckbox.name = 'ios7_listcheckbox';
 prx.types.ios7_listcheckbox.dynamicProperties.blankItem.itemtype = 'checkbox';
-prx.types.ios7_listcheckbox.dynamicProperties.blankItem.buttonicon = {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
+prx.types.ios7_listcheckbox.dynamicProperties.blankItem.buttonicon = {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"};
 prx.types.ios7_listcheckbox.dynamicProperties.propertyGroups = prx.componentsHelper.editProperty(prx.types.ios7_listcheckbox.dynamicProperties.propertyGroups, 'itemtype', 'value', 'checkbox');
 
 /* LIST HEADER */
@@ -4346,10 +4334,10 @@ prx.types.ios8_map_tag = {
 		cR += '#' + _id + ' .ios8-map-tag-duration { color: '+prx.utils.getColor(item.durationColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.durationFont)+' font-size: '+item.durationSize+'px; '+_duration_props+'}';
 
 		cR += '#' + _id + ' .ios8-map-tag-left-info { width: '+dims.height+'px; background-color: '+prx.utils.getColor(item.durationBgColor)+'; border-radius: '+borderRadius+'px 0 0 '+borderRadius+'px;}';
-		if(item.imgSrc.url != '') {
+		if(item.imgSrc.fileId != '') {
 			cR += '#' + _id + ' .ios8-map-tag-icon-left {  background-image: url('+prx.componentsHelper.getAssetUrl(item.imgSrc)+'); }';
 		}
-		if(item.imgSrc2.url != '') {
+		if(item.imgSrc2.fileId != '') {
 			cR += '#' + _id + ' .ios8-map-tag-icon-right { background-image: url('+prx.componentsHelper.getAssetUrl(item.imgSrc2)+'); }';
 		}
 		cR += '</style>';
@@ -4358,14 +4346,14 @@ prx.types.ios8_map_tag = {
 		cR += '<div class="ios8-map-tag-wrapper liveUpdate-backgroundColor-background-color changeProperty-backgroundColor-background-color">';
 		if(item.showThumb == true) {
 			cR += '<div class="ios8-map-tag-left-info liveUpdate-durationBgColor changeProperty-durationBgColor">';
-			if(item.imgSrc.url != '') {
+			if(item.imgSrc.fileId != '') {
 				cR += '<div class="ios8-map-tag-icon-left"></div>';
 			}
 			cR += '<div class="ios8-map-tag-duration liveUpdate-durationColor changeProperty-durationColor changeProperty-durationSize changeProperty-durationFont" data-editableproperty="duration">'+item.duration+'</div>';
 			cR += '</div>';
 		}
 		cR += '<div class="ios8-map-tag-text liveUpdate-textColor changeProperty-textColor changeProperty-textSize changeProperty-textFont"><span data-editableproperty="text">'+item.text+'</span></div>';
-		if(item.imgSrc2.url != '') {
+		if(item.imgSrc2.fileId != '') {
 			cR += '<div class="ios8-map-tag-icon-right actions-actions1"></div>';
 		}
 		cR += '</div>';
@@ -4402,7 +4390,7 @@ prx.types.ios8_map_tag = {
 				return item.actions1.length;
 			}
 			,hiddenByDefault: function(item) {
-				return (item.imgSrc2.url == '');
+				return (item.imgSrc2.fileId == '');
 			}
 		}
     ]
@@ -4586,7 +4574,7 @@ prx.types.ios8_map_tag = {
 						name: 'imgSrc',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.imgSrc.url == '') {
+							if(item.imgSrc.fileId == '') {
 									return 'No asset selected.';
 								}
 								return item.imgSrc.name;
@@ -4617,7 +4605,7 @@ prx.types.ios8_map_tag = {
 						name: 'imgSrc2',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.imgSrc2.url == '') {
+							if(item.imgSrc2.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.imgSrc2.name;
@@ -4655,7 +4643,7 @@ prx.types.ios8_message_bubble = {
 		cR += '<style>'
 		cR += '#' + _id + ' .ios8-message-bubble-wrapper { background-color: '+prx.utils.getColor(item.backgroundColor)+'; text-align: '+item.textAlign+'; }';
 		cR += '#' + _id + ' .ios8-message-bubble-text { color: '+prx.utils.getColor(item.textColor)+'; '+prx.componentsHelper.getFontCssFromFontFamily(item.textFont)+' font-size: '+item.textSize+'px; '+_props+'}';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 			cR += '#' + _id + ' .ios8-message-bubble-thumb { background-image: url('+prx.componentsHelper.getAssetUrl(item.thumbnail)+');}';
 		}
 		cR += '#' + _id + ' .ios8-message-bubble-tip { border-color: '+prx.utils.getColor(item.backgroundColor)+';}';
@@ -4664,7 +4652,7 @@ prx.types.ios8_message_bubble = {
 		cR += '<div class="ios8-message-bubble-wrapper '+(item.isSender ? 'right ' : '')+'liveUpdate-backgroundColor-background-color changeProperty-backgroundColor-background-color changeProperty-borderRadius changeProperty-textAlign">';
 		cR += '<div class="ios8-message-bubble-text liveUpdate-textColor changeProperty-textColor changeProperty-textFont"><span data-editableproperty="text">'+item.text+'</span></div>';
 		cR += '<div class="ios8-message-bubble-thumb-wrapper">';
-		if(item.thumbnail.url != '') {
+		if(item.thumbnail.fileId != '') {
 		cR += '<div class="ios8-message-bubble-thumb"></div>';
 		}
 		cR += '</div>';
@@ -4731,7 +4719,7 @@ prx.types.ios8_message_bubble = {
 						name: 'thumbnail',
 						type: 'combo-asset',
 						displayValue: function(item,name) {
-							if(item.thumbnail.url == '') {
+							if(item.thumbnail.fileId == '') {
 	      						return 'No asset selected.';
 	      					}
 	      					return item.thumbnail.name;
@@ -4829,9 +4817,9 @@ prx.components.ios7_navbar_buttons = {
 	,leftBtnText: 'Back'
 	,rightBtnText: 'Done'
 	,leftBtnType: 'texticon'
-	,leftBtnIcon: {"fileId":"b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","folderId":"f1352971179296","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
+	,leftBtnIcon: {"fileId":"c0877fc419aa836a4097f4f982a53a59.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
 	,rightBtnType: 'text'
-	,rightBtnIcon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+	,rightBtnIcon: {"fileId":"","name":"","assetType":"icon","url":""}
 };
 
 prx.components.ios7_tabbar = {
@@ -4863,15 +4851,15 @@ prx.components.ios7_tabbar = {
 	,overlay: false
 	,tabs: [
 		{
-	    	text: 'Home'
-	    	,icon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_8d8d8d.svg","color":"8d8d8d"}
-			,activeicon: {"fileId":"e6a1ba573190139ceda51280e9fdad9c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","folderId":"f1352971179296","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_1b9af7.svg","color":"1b9af7"}
+			text: 'Home'
+			,icon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_333333.svg","color":"383838"}
+			,activeicon: {"fileId":"e4e7dbcddba77b96954aa3602719162c.svg","name":"kub-home.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/e6a1ba573190139ceda51280e9fdad9c.svg","targetSrc":"generated/e6a1ba573190139ceda51280e9fdad9c_ffffff.svg","color":"ffffff"}
 			,actions: []
-	    },
+		},
 		{
-	    	text: 'Messages'
-	    	,icon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_8d8d8d.svg","color":"8d8d8d"}
-		    ,activeicon: {"fileId":"1b58b288e91e6a4cb64d90433880003d.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","folderId":"f1352971179296","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_1b9af7.svg","color":"1b9af7"}
+			text: 'Messages'
+			,icon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_333333.svg","color":"383838"}
+		    ,activeicon: {"fileId":"e55334acc02f524531f172be5348bfd2.svg","name":"mail-2.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/1b58b288e91e6a4cb64d90433880003d.svg","targetSrc":"generated/1b58b288e91e6a4cb64d90433880003d_ffffff.svg","color":"ffffff"}
 			,actions: []
 		}
     ]
@@ -4895,23 +4883,23 @@ prx.components.ios7_toolbar = {
 	,overlay: false
 	,buttons: [
 		{
-	    	icon: {"fileId":"dd79283d0c018b90ddaddd64e4f6e528.svg","name":"flag-1.svg","assetType":"icon","bucketsource":"static","url":"f1352393585280/dd79283d0c018b90ddaddd64e4f6e528.svg","folderId":"f1352393585280","targetSrc":"generated/dd79283d0c018b90ddaddd64e4f6e528_1b9af7.svg","color":"1b9af7"}
+	    	icon: {"fileId":"ef774542eca2f2136562f18561e024b9.svg","name":"flag-1.svg","assetType":"icon","bucketsource":"static","url":"f1352393585280/dd79283d0c018b90ddaddd64e4f6e528.svg","targetSrc":"generated/dd79283d0c018b90ddaddd64e4f6e528_1b9af7.svg","color":"1b9af7"}
 			,actions: []
 	    },
 		{
-	    	icon: {"fileId":"509bc66ab2b78cb8be33f5d5a09565f2.svg","name":"folder-open.svg","assetType":"icon","bucketsource":"static","url":"f1352392599447/509bc66ab2b78cb8be33f5d5a09565f2.svg","folderId":"f1352392599447","targetSrc":"generated/509bc66ab2b78cb8be33f5d5a09565f2_1b9af7.svg","color":"1b9af7"}
+	    	icon: {"fileId":"031673aaf750846323dbce519ac7ae57.svg","name":"folder-open.svg","assetType":"icon","bucketsource":"static","url":"f1352392599447/509bc66ab2b78cb8be33f5d5a09565f2.svg","targetSrc":"generated/509bc66ab2b78cb8be33f5d5a09565f2_1b9af7.svg","color":"1b9af7"}
 			,actions: []
 		},
 		{
-	    	icon: {"fileId":"e61a10b75e24969c112f42511678b129.svg","name":"kub-trash.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/e61a10b75e24969c112f42511678b129.svg","folderId":"f1352449307873","targetSrc":"generated/e61a10b75e24969c112f42511678b129_1b9af7.svg","color":"1b9af7"}
+	    	icon: {"fileId":"465e32d9ef45ce932507e2d8510aad65.svg","name":"kub-trash.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/e61a10b75e24969c112f42511678b129.svg","targetSrc":"generated/e61a10b75e24969c112f42511678b129_1b9af7.svg","color":"1b9af7"}
 			,actions: []
 	    },
 		{
-	    	icon: {"fileId":"2b44a2094b283cf56e0b407d4fe110d1.svg","name":"tl-undo.svg","assetType":"icon","bucketsource":"static","url":"f1352389411295/2b44a2094b283cf56e0b407d4fe110d1.svg","folderId":"f1352389411295","targetSrc":"generated/2b44a2094b283cf56e0b407d4fe110d1_1b9af7.svg","color":"1b9af7"}
+	    	icon: {"fileId":"4e597fba679249aba28c9cbd14537157.svg","name":"tl-undo.svg","assetType":"icon","bucketsource":"static","url":"f1352389411295/2b44a2094b283cf56e0b407d4fe110d1.svg","targetSrc":"generated/2b44a2094b283cf56e0b407d4fe110d1_1b9af7.svg","color":"1b9af7"}
 			,actions: []
 	    },
 		{
-	    	icon: {"fileId":"64193ce12d7f3b0eecf327262aec508f.svg","name":"tl-pencil.svg","assetType":"icon","bucketsource":"static","url":"f1352449133232/64193ce12d7f3b0eecf327262aec508f.svg","folderId":"f1352449133232","targetSrc":"generated/64193ce12d7f3b0eecf327262aec508f_1b9af7.svg","color":"1b9af7"}
+	    	icon: {"fileId":"4541ee15e29d3c0c5df5326fc45d385d.svg","name":"tl-pencil.svg","assetType":"icon","bucketsource":"static","url":"f1352449133232/64193ce12d7f3b0eecf327262aec508f.svg","targetSrc":"generated/64193ce12d7f3b0eecf327262aec508f_1b9af7.svg","color":"1b9af7"}
 			,actions: []
 	    },
     ]
@@ -4954,7 +4942,7 @@ prx.components.ios7_button_bg = {
 	,textProperties: []
 	,textAlign: 'center'
 	,iconpos: 'none'
-	,img: {"fileId":"b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","folderId":"f1352971179296","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_ffffff.svg","color":"ffffff"}
+	,img: {"fileId":"c0877fc419aa836a4097f4f982a53a59.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_ffffff.svg","color":"ffffff"}
 };
 
 prx.components.ios7_button = {
@@ -4975,7 +4963,7 @@ prx.components.ios7_button = {
 	,textProperties: []
 	,textAlign: 'center'
 	,iconpos: 'left'
-	,img: {"fileId":"b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","folderId":"f1352971179296","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
+	,img: {"fileId":"c0877fc419aa836a4097f4f982a53a59.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
 };
 
 prx.components.ios7_button_icon = {
@@ -4991,7 +4979,7 @@ prx.components.ios7_button_icon = {
 	,resizable : true
 	,textAlign: 'center'
 	,iconpos: 'notext'
-	,img: {"fileId":"b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","folderId":"f1352971179296","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
+	,img: {"fileId":"c0877fc419aa836a4097f4f982a53a59.svg","name":"chevron-left.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/b0a2a6e58cba73da2d0b8dc3e0ac8fe8.svg","targetSrc":"generated/b0a2a6e58cba73da2d0b8dc3e0ac8fe8_1b9af7.svg","color":"1b9af7"}
 };
 
 prx.components.ios7_button_text = {
@@ -5031,7 +5019,7 @@ prx.components.ios7_button_icon_circular = {
 	,borderRadius: '50%'
 	,textAlign: 'center'
 	,iconpos: 'notext'
-	,img: {"fileId":"a0de48396fb6d6a99bc13cb51fbddf36.svg","name":"lock-close.svg","assetType":"icon","bucketsource":"static","url":"f1352393041300/a0de48396fb6d6a99bc13cb51fbddf36.svg","folderId":"f1352393041300"}
+	,img: {"fileId":"ce8e4cb4b87ca1ae337f04fffd878cde.svg","name":"lock-close.svg","assetType":"icon","bucketsource":"static","url":"f1352393041300/a0de48396fb6d6a99bc13cb51fbddf36.svg"}
 };
 
 
@@ -5052,7 +5040,7 @@ prx.components.ios7_button_icon_square = {
 	,borderRadius: '15'
 	,textAlign: 'center'
 	,iconpos: 'notext'
-	,img: {"fileId":"2180c33c348538f1cfb9e6f56b65f4a5.svg","name":"camera.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/2180c33c348538f1cfb9e6f56b65f4a5.svg","folderId":"f1352971179296"}
+	,img: {"fileId":"061330b5e4e68e5a8108e06f0da84821.svg","name":"camera.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/2180c33c348538f1cfb9e6f56b65f4a5.svg"}
 };
 
 prx.components.ios7_button_ui = {
@@ -5069,7 +5057,7 @@ prx.components.ios7_button_ui = {
 	,borderRadius: '50%'
 	,textAlign: 'center'
 	,iconpos: 'notext'
-	,img: {"fileId":"558b9ee9b4a9123e4df38f815f297650.svg","name":"plus.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/558b9ee9b4a9123e4df38f815f297650.svg","folderId":"f1352971179296","targetSrc":"generated/558b9ee9b4a9123e4df38f815f297650_ffffff.svg","color":"ffffff"}
+	,img: {"fileId":"24ba15d6600898b19f36e32c16c2728d.svg","name":"plus.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/558b9ee9b4a9123e4df38f815f297650.svg","targetSrc":"generated/558b9ee9b4a9123e4df38f815f297650_ffffff.svg","color":"ffffff"}
 };
 
 prx.components.ios7_segmentedcontrol = {
@@ -5230,7 +5218,7 @@ prx.components.ios7_checkbox = {
 	,borderWidth: 1*prx.componentsHelper.getScale(_library)
 	,borderColor: '#999999'
 	,borderRadius: '50%'
-	,img: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_ffffff.svg","color":"ffffff"}
+	,img: {"fileId":"498e767b8d1969245862682798acb78f.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_ffffff.svg","color":"ffffff"}
 	,active: true
 };
 
@@ -5311,8 +5299,8 @@ prx.components.ios8_searchbar = {
 	,borderWidth: 1*prx.componentsHelper.getScale(_library)
 	,borderRadius: 3*prx.componentsHelper.getScale(_library)
 	,borderColor: 'cccccc'
-	,imgSrc: {"fileId":"14870b88002e540a4d1fc9c2d2a88384.svg","name":"search.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/14870b88002e540a4d1fc9c2d2a88384.svg","folderId":"f1352971179296","targetSrc":"generated/14870b88002e540a4d1fc9c2d2a88384_999999.svg","color":"999999"}
-	,imgSrc2: {"fileId":"61a2922cfa9b623512ce97a21983a037.svg","name":"cr-delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/61a2922cfa9b623512ce97a21983a037.svg","folderId":"f1352449307873","targetSrc":"generated/61a2922cfa9b623512ce97a21983a037_999999.svg","color":"999999"}
+	,imgSrc: {"fileId":"3e49eaab00dc41aaa07e1f7e39779c39.svg","name":"search.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/14870b88002e540a4d1fc9c2d2a88384.svg","targetSrc":"generated/14870b88002e540a4d1fc9c2d2a88384_999999.svg","color":"999999"}
+	,imgSrc2: {"fileId":"e648f99b268782f39ea1442529369aa3.svg","name":"cr-delete.svg","assetType":"icon","bucketsource":"static","url":"f1352449307873/61a2922cfa9b623512ce97a21983a037.svg","targetSrc":"generated/61a2922cfa9b623512ce97a21983a037_999999.svg","color":"999999"}
 }
 
 prx.components.ios7_listbasic = {
@@ -5348,7 +5336,7 @@ prx.components.ios7_listbasic = {
     	   ,text: 'Label 1'
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
        },
        {
@@ -5356,7 +5344,7 @@ prx.components.ios7_listbasic = {
     	   ,text: 'Label 2'
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
        }
     ]
@@ -5394,19 +5382,19 @@ prx.components.ios7_listnested = {
        {
     	   itemtype: 'nested'
     	   ,text: 'Label 1'
-    	   ,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+    	   ,buttonicon: {"fileId":"b821d85ca40ce5ec744f7c97418d2b93.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
        },
        {
     	   itemtype: 'nested'
 		   ,text: 'Label 2'
-		   ,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+		   ,buttonicon: {"fileId":"b821d85ca40ce5ec744f7c97418d2b93.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
        }
     ]
@@ -5444,20 +5432,20 @@ prx.components.ios7_listwithicon = {
        {
     	   itemtype: 'withIcon'
     	   ,text: 'Label 1'
-    	   ,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    	   ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
 
        },
        {
     	   itemtype: 'withIcon'
     	   ,text: 'Label 2'
-    	   ,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+    	   ,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
        }
     ]
@@ -5500,7 +5488,7 @@ prx.components.ios7_listwithvalue = {
 			,itemtype: 'withValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
 			,actions: []
 			,subtitle: ''
 		},
@@ -5509,7 +5497,7 @@ prx.components.ios7_listwithvalue = {
 			,itemtype: 'withValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
 			,actions: []
 			,subtitle: ''
 		}
@@ -5555,8 +5543,8 @@ prx.components.ios7_listnestedwithvalue = {
 			,itemtype: 'nestedWithValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
 			,actions: []
 			,subtitle: ''
 		},
@@ -5565,8 +5553,8 @@ prx.components.ios7_listnestedwithvalue = {
 			,itemtype: 'nestedWithValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
 			,actions: []
 			,subtitle: ''
 		}
@@ -5612,8 +5600,8 @@ prx.components.ios7_listwithiconandvalue = {
 			,itemtype: 'withIconAndValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,actions: []
 			,subtitle: ''
 		},
@@ -5622,8 +5610,8 @@ prx.components.ios7_listwithiconandvalue = {
 			,itemtype: 'withIconAndValue'
 			,value: 'Insert value'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,actions: []
 			,subtitle: ''
 		}
@@ -5669,7 +5657,7 @@ prx.components.ios7_listwithbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
 			,actions: []
 		},
 		{
@@ -5678,7 +5666,7 @@ prx.components.ios7_listwithbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
 			,actions: []
 		}
     ]
@@ -5725,8 +5713,8 @@ prx.components.ios7_listnestedwithbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
 			,actions: []
 		},
 		{
@@ -5735,8 +5723,8 @@ prx.components.ios7_listnestedwithbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"308d48427cd7846bd86b679eabd077ae.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_999999.svg","color":"999999"}
 				,actions: []
 			}
 	    ]
@@ -5783,8 +5771,8 @@ prx.components.ios7_listwithiconandbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,actions: []
 		},
 		{
@@ -5793,8 +5781,8 @@ prx.components.ios7_listwithiconandbadge = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,actions: []
 		}
     ]
@@ -5832,10 +5820,10 @@ prx.components.ios7_listradio = {
        {
     	   itemtype: 'radio'
     	   ,text: 'Label 1'
-    	   ,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+    	   ,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
     	   ,checked: true
 
@@ -5843,10 +5831,10 @@ prx.components.ios7_listradio = {
        {
     	   itemtype: 'radio'
     	   ,text: 'Label 2'
-    	   ,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+    	   ,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
     	   ,checked: false
        }
@@ -5885,10 +5873,10 @@ prx.components.ios7_listcheckbox = {
        {
     	   itemtype: 'checkbox'
     	   ,text: 'Label 1'
-    	   ,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+    	   ,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
     	   ,checked: true
 
@@ -5896,10 +5884,10 @@ prx.components.ios7_listcheckbox = {
        {
     	   itemtype: 'checkbox'
     	   ,text: 'Label 2'
-    	   ,buttonicon: {"fileId":"34d6599607c21d5f87e5d30af9449c1c.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","folderId":"f1352971179296","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
+    	   ,buttonicon: {"fileId":"0e4b53af477f69a7a69a6e13e4a63640.svg","name":"check.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/34d6599607c21d5f87e5d30af9449c1c.svg","targetSrc":"generated/34d6599607c21d5f87e5d30af9449c1c_1b9af7.svg","color":"1B9AF7"}
     	   ,actions: []
     	   ,hasThumbnail: false
-    	   ,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
+    	   ,thumbnail: {"fileId":"","name":"","assetType":""}
     	   ,subtitle: ''
     	   ,checked: true
        }
@@ -5953,8 +5941,8 @@ prx.components.ios7_listcomplex = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,checked: false
 			,actions: []
 		},
@@ -5965,8 +5953,8 @@ prx.components.ios7_listcomplex = {
 			,subtitle: ''
 			,badgeText: '1'
 			,hasThumbnail: false
-			,thumbnail: { fileId: '', folderId: '', url: '', assetType: '', name: '' }
-			,buttonicon: { fileId: '', folderId: '', url: '', assetType: 'icon', name: '' }
+			,thumbnail: {"fileId":"","name":"","assetType":""}
+			,buttonicon: {"fileId":"","name":"","assetType":"icon","url":""}
 			,checked: false
 			,actions: []
 		}
@@ -6216,8 +6204,8 @@ prx.components.ios8_map_tag = {
 		,duration: '50min'
 		,backgroundColor: 'ffffff'
 		,showThumb: true
-		,imgSrc: {"fileId":"cb7ab2793057d244a681e0bd37d66024.svg","name":"car2.svg","assetType":"icon","bucketsource":"static","url":"f1352447787435/cb7ab2793057d244a681e0bd37d66024.svg","folderId":"f1352447787435","targetSrc":"generated/cb7ab2793057d244a681e0bd37d66024_ffffff.svg","color":"ffffff"}
-		,imgSrc2: {"fileId":"54d11361d17fef026e2d6b2c1a8fe379.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","folderId":"f1352971179296","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_c6c6c6.svg","color":"C6C6C6"}
+		,imgSrc: {"fileId":"e15a1c8db6de07dd76c19879e0d3d168.svg","name":"car2.svg","assetType":"icon","bucketsource":"static","url":"f1352447787435/cb7ab2793057d244a681e0bd37d66024.svg","targetSrc":"generated/cb7ab2793057d244a681e0bd37d66024_ffffff.svg","color":"ffffff"}
+		,imgSrc2: {"fileId":"b821d85ca40ce5ec744f7c97418d2b93.svg","name":"chevron-right.svg","assetType":"icon","bucketsource":"static","url":"f1352971179296/54d11361d17fef026e2d6b2c1a8fe379.svg","targetSrc":"generated/54d11361d17fef026e2d6b2c1a8fe379_c6c6c6.svg","color":"C6C6C6"}
 }
 
 prx.components.ios8_message_bubble = {
@@ -6238,5 +6226,5 @@ prx.components.ios8_message_bubble = {
 		,textAlign: 'left'
 		,textProperties: []
 		,isSender: false
-		,thumbnail: {"fileId":"01eb56561388a5a9015bcab43ddeeab5.svg","folderId":"f1353077251107","assetType":"gallery","url":"f1353077251107/01eb56561388a5a9015bcab43ddeeab5.svg","bucketsource":"main","name":" image_placeholder.svg"}
+		,thumbnail: {"fileId": "d310bece0e91b91b485ed62166d1fc2e.svg","assetType": "gallery","bucketsource": "main","name": " image_placeholder.svg"}
 	};

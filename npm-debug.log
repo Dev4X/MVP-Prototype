@@ -1,0 +1,87 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ngCordova' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json dev4x-prototype@1.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'ngCordova', null ]
+8 verbose cache add name=undefined spec="ngCordova" args=["ngCordova",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'ngCordova',
+9 verbose parsed url   path: 'ngCordova',
+9 verbose parsed url   href: 'ngCordova' }
+10 silly lockFile c4cc40e6-ngCordova ngCordova
+11 verbose lock ngCordova C:\Users\Michael\AppData\Roaming\npm-cache\c4cc40e6-ngCordova.lock
+12 silly lockFile c4cc40e6-ngCordova ngCordova
+13 silly lockFile c4cc40e6-ngCordova ngCordova
+14 verbose addNamed [ 'ngCordova', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile e8f61dac-ngCordova ngCordova@
+17 verbose lock ngCordova@ C:\Users\Michael\AppData\Roaming\npm-cache\e8f61dac-ngCordova.lock
+18 silly addNameRange { name: 'ngCordova', range: '*', hasData: false }
+19 verbose request where is /ngCordova
+20 verbose request registry https://registry.npmjs.org/
+21 verbose request id d5c6b0eaa1706877
+22 verbose url raw /ngCordova
+23 verbose url resolving [ 'https://registry.npmjs.org/', './ngCordova' ]
+24 verbose url resolved https://registry.npmjs.org/ngCordova
+25 verbose request where is https://registry.npmjs.org/ngCordova
+26 info trying registry request attempt 1 at 12:46:54
+27 http GET https://registry.npmjs.org/ngCordova
+28 http 404 https://registry.npmjs.org/ngCordova
+29 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 verbose headers   'content-type': 'application/json',
+29 verbose headers   'cache-control': 'max-age=0',
+29 verbose headers   'content-length': '51',
+29 verbose headers   'accept-ranges': 'bytes',
+29 verbose headers   date: 'Thu, 21 May 2015 16:46:56 GMT',
+29 verbose headers   via: '1.1 varnish',
+29 verbose headers   age: '0',
+29 verbose headers   connection: 'keep-alive',
+29 verbose headers   'x-served-by': 'cache-atl6232-ATL',
+29 verbose headers   'x-cache': 'MISS',
+29 verbose headers   'x-cache-hits': '0',
+29 verbose headers   'x-timer': 'S1432226816.321876,VS0,VE31' }
+30 silly registry.get cb [ 404,
+30 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 silly registry.get     'content-type': 'application/json',
+30 silly registry.get     'cache-control': 'max-age=0',
+30 silly registry.get     'content-length': '51',
+30 silly registry.get     'accept-ranges': 'bytes',
+30 silly registry.get     date: 'Thu, 21 May 2015 16:46:56 GMT',
+30 silly registry.get     via: '1.1 varnish',
+30 silly registry.get     age: '0',
+30 silly registry.get     connection: 'keep-alive',
+30 silly registry.get     'x-served-by': 'cache-atl6232-ATL',
+30 silly registry.get     'x-cache': 'MISS',
+30 silly registry.get     'x-cache-hits': '0',
+30 silly registry.get     'x-timer': 'S1432226816.321876,VS0,VE31' } ]
+31 silly lockFile e8f61dac-ngCordova ngCordova@
+32 silly lockFile e8f61dac-ngCordova ngCordova@
+33 error 404 404 Not Found: ngCordova
+33 error 404
+33 error 404 'ngCordova' is not in the npm registry.
+33 error 404 You should bug the author to publish it
+33 error 404 It was specified as a dependency of 'dev4x-prototype'
+33 error 404
+33 error 404 Note that you can also install from a
+33 error 404 tarball, folder, or http url, or git url.
+34 error System Windows_NT 6.2.9200
+35 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ngCordova"
+36 error cwd c:\Dev\Dev4X\Prototype
+37 error node -v v0.10.33
+38 error npm -v 1.4.28
+39 error code E404
+40 verbose exit [ 1, true ]
