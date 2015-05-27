@@ -20,7 +20,9 @@
     "installed_plugins": {
         "com.hutchind.cordova.plugins.launcher": {
             "PACKAGE_NAME": "com.ionicframework.starter"
-        }
+        },
+        "org.apache.cordova.device": {},
+        "org.apache.cordova.splashscreen": {}
     },
     "dependent_plugins": {}
 }

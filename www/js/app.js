@@ -6,11 +6,14 @@ function onDeviceReady() {
 
 	if (window.cordova) {
 		alert("Cordova");
+        alert(window.plugins.length);
+        window.plugins.forEach(function(plug) { alert(plug); });
 	}
 		
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
+    
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
@@ -21,7 +24,6 @@ function onDeviceReady() {
     };
     var errorCallback = function(errMsg) {
         alert("Error! " + errMsg);
-    }
-	
+    };
 	window.plugins.launcher.canLaunch({packageName:'com.facebook.katana'}, successCallback, errorCallback);
 }
