@@ -19,41 +19,16 @@
 
 package com.ionicframework.starter;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import org.apache.cordova.*;
-
-import android.util.Log;
-import android.webkit.JavascriptInterface;
 
 public class MainActivity extends CordovaActivity
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-
-    	JavaScriptInterface jsInterface;
         super.onCreate(savedInstanceState);
-        super.init();
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-        jsInterface = new JavaScriptInterface(MainActivity.this);
-        
-        super.appView.addJavascriptInterface(jsInterface,"JSInterface");
     }
-    
-    public class JavaScriptInterface {
-		public Activity mContext;
-
-		public JavaScriptInterface(Activity c) {
-			this.mContext = c;
-		}
-
-		@JavascriptInterface
-		public void openApp(String packageName) {
-			Intent i = getActivity().getApplicationContext().getPackageManager().getLaunchIntentForPackage(packageName);
-			getActivity().getApplicationContext().startActivity(i);
-		}
-	}
 }

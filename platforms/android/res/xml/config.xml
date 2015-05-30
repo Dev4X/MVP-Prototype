@@ -4,6 +4,12 @@
     <feature name="Launcher">
         <param name="android-package" value="com.hutchind.cordova.plugins.launcher.Launcher" />
     </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
     <name>Dev4X Prototype</name>
     <description>
         Dev4X Autonomous Self-schooling Educational Platform

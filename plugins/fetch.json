@@ -5,5 +5,17 @@
             "url": "https://github.com/nchutchind/App-Launcher-Cordova-Plugin.git",
             "subdir": "."
         }
+    },
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Michael\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova-plugins\\org.apache.cordova.device"
+        }
+    },
+    "org.apache.cordova.splashscreen": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Michael\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova-plugins\\org.apache.cordova.splashscreen"
+        }
     }
 }

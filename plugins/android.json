@@ -11,6 +11,14 @@
                         {
                             "xml": "<feature name=\"Launcher\"><param name=\"android-package\" value=\"com.hutchind.cordova.plugins.launcher.Launcher\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -21,8 +29,12 @@
         "com.hutchind.cordova.plugins.launcher": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "org.apache.cordova.device": {},
-        "org.apache.cordova.splashscreen": {}
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        }
     },
     "dependent_plugins": {}
 }
