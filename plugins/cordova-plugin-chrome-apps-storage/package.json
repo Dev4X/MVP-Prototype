@@ -1,0 +1,35 @@
+{
+  "name": "cordova-plugin-chrome-apps-storage",
+  "version": "1.0.4",
+  "description": "This plugin provides allows apps to use local storage.",
+  "cordova": {
+    "id": "cordova-plugin-chrome-apps-storage",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-storage.git"
+  },
+  "keywords": [
+    "chrome",
+    "storage",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-storage/issues"
+  },
+  "homepage": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-storage"
+}

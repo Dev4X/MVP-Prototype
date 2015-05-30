@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.chromium.backgroundapp" >
+
+    <uses-sdk android:minSdkVersion="14" />
+
+    <application>
+        <activity
+            android:name="com.ionicframework.starter.MainActivity"
+            android:allowTaskReparenting="true"
+            android:exported="true" >
+
+            <!--
+                 exported=true needed only when using ApplicationContext to launch activity.
+                 ApplicationContext only needed on older Androids, where exported=true is
+                 not required, so there may be a way to not need to export based on sdk
+            -->
+        </activity>
+    </application>
+
+</manifest>

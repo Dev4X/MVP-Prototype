@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Copyright (c) 2014 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+    id="cordova-plugin-background-app"
+    version="2.0.2">
+  <engines>
+    <engine name="cordova-android" version=">=4" />
+  </engines>
+
+  <name>Background App</name>
+  <keywords>chrome,background</keywords>
+  <repo>https://github.com/MobileChromeApps/cordova-plugin-background-app.git</repo>
+  <issue>https://github.com/MobileChromeApps/cordova-plugin-background-app/issues</issue>
+
+  <js-module src="backgroundapp.js" name="backgroundapp">
+      <clobbers target="cordova.backgroundapp" />
+  </js-module>
+
+  <platform name="android">
+    <framework src="background-activity-lib" custom="true" />
+
+    <config-file target="res/xml/config.xml" parent="/widget">
+        <feature name="BackgroundPlugin">
+            <param name="android-package" value="org.chromium.BackgroundPlugin" />
+            <param name="onload" value="true" />
+        </feature>
+    </config-file>
+    <!-- Add this in plugin.xml rather than in library to make it more obvious -->
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <!-- Note: <intent-filter> is removed from previous main activity by the gradle script -->
+        <activity
+            android:excludeFromRecents="true"
+            android:name="org.chromium.BackgroundLauncherActivity"
+            android:taskAffinity=".launcher"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:name="org.chromium.BackgroundActivity"
+            android:taskAffinity=".cordovabackground"
+            android:theme="@android:style/Theme.NoDisplay">
+        </activity>
+    </config-file>
+  </platform>
+  <platform name="ios">
+    <source-file src="MCABackgroundApp.m" />
+
+    <config-file target="config.xml" parent="/widget">
+      <feature name="BackgroundPlugin">
+        <param name="ios-package" value="MCABackgroundApp"/>
+      </feature>
+    </config-file>
+  </platform>
+</plugin>

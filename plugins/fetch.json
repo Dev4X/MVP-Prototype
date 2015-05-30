@@ -17,5 +17,62 @@
             "type": "local",
             "path": "C:\\Users\\Michael\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova-plugins\\org.apache.cordova.splashscreen"
         }
+    },
+    "org.chromium.common": {
+        "source": {
+            "type": "registry",
+            "id": "org.chromium.common"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "org.chromium.i18n": {
+        "source": {
+            "type": "registry",
+            "id": "org.chromium.i18n"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-chrome-apps-bootstrap": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-bootstrap.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-chrome-apps-common": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-chrome-apps-common@1"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-chrome-apps-runtime": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-chrome-apps-runtime@1"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-chrome-apps-storage": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-chrome-apps-storage@1"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-background-app": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-background-app@2"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

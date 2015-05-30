@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "name": "org.chromium.i18n",
+    "cordova_name": "Chrome Apps I18n API",
+    "repo": "https://github.com/MobileChromeApps/mobile-chrome-apps.git",
+    "issue": "https://github.com/MobileChromeApps/mobile-chrome-apps/issues",
+    "keywords": [
+        "chrome",
+        "i18n",
+        "internationalization"
+    ],
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}
