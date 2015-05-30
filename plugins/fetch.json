@@ -73,5 +73,21 @@
         },
         "is_top_level": false,
         "variables": {}
+    },
+    "org.chromium.runtime": {
+        "source": {
+            "type": "registry",
+            "id": "org.chromium.runtime"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.chromium.storage": {
+        "source": {
+            "type": "registry",
+            "id": "org.chromium.storage"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

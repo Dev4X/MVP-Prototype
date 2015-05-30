@@ -8,6 +8,22 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.chromium.common/events.js",
+        "id": "cordova-plugin-chrome-apps-common.events"
+    },
+    {
+        "file": "plugins/org.chromium.common/helpers.js",
+        "id": "cordova-plugin-chrome-apps-common.helpers"
+    },
+    {
+        "file": "plugins/org.chromium.common/stubs.js",
+        "id": "cordova-plugin-chrome-apps-common.stubs"
+    },
+    {
+        "file": "plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js",
+        "id": "org.chromium.runtime.runtime"
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -38,6 +54,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "com.hutchind.cordova.plugins.launcher": "0.2.2",
+    "org.chromium.runtime.runtime": "1.1.0",
     "org.apache.cordova.device": "0.2.13",
     "org.apache.cordova.splashscreen": "0.3.5",
     "org.chromium.i18n": "2.0.0",
