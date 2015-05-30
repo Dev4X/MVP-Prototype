@@ -1,4 +1,3 @@
 // GENERATED FILE - DO NOT EDIT
 include ":"
 include ":CordovaLib"
-include ":cordova-plugin-background-app:starter-background-activity-lib"

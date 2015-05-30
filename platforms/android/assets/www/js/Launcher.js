@@ -22,6 +22,7 @@ Launcher.install = function () {
 
 	window.plugins.launcher = new Launcher();
 	return window.plugins.launcher;
+	alert('insllaing a');
 };
 
 cordova.addConstructor(Launcher.install);

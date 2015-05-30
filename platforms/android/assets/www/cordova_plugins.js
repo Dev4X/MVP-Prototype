@@ -22,13 +22,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.chromium.i18n/i18n.js",
-        "id": "org.chromium.i18n.I18n",
-        "clobbers": [
-            "chrome.i18n"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-chrome-apps-bootstrap/api/app/window.js",
         "id": "cordova-plugin-chrome-apps-bootstrap.app.window",
         "clobbers": [
@@ -128,8 +121,7 @@ module.exports.metadata =
     "com.hutchind.cordova.plugins.launcher": "0.2.2",
     "org.apache.cordova.device": "0.2.13",
     "org.apache.cordova.splashscreen": "0.3.5",
-    "org.chromium.i18n": "2.0.0",
-    "cordova-plugin-chrome-apps-bootstrap": "2.0.8-dev",
+    "cordova-plugin-chrome-apps-bootstrap": "2.0.7",
     "org.chromium.common": "1.0.6",
     "cordova-plugin-chrome-apps-common": "1.0.7",
     "cordova-plugin-chrome-apps-storage": "1.0.4",

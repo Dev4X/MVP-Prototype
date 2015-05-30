@@ -96,7 +96,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "org.chromium.i18n/starter-copy-locales.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -249,8 +248,6 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: ":CordovaLib", configuration: "debug")
     releaseCompile project(path: ":CordovaLib", configuration: "release")
-    debugCompile project(path: ":cordova-plugin-background-app:starter-background-activity-lib", configuration: "debug")
-    releaseCompile project(path: ":cordova-plugin-background-app:starter-background-activity-lib", configuration: "release")
     // SUB-PROJECT DEPENDENCIES END
 }
 
