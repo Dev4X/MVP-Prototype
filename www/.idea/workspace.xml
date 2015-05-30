@@ -44,7 +44,7 @@
       <file leaf-file-name="runtime.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="46" selection-start="2544" selection-end="2544" vertical-scroll-proportion="0.26024097" vertical-offset="549" max-vertical-offset="3105">
+            <state line="54" column="0" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.31445783" vertical-offset="549" max-vertical-offset="3105">
               <folding />
             </state>
           </provider>
@@ -175,6 +175,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="_locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="en" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -322,7 +358,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="46" selection-start="2544" selection-end="2544" vertical-scroll-proportion="0.26024097" vertical-offset="549" max-vertical-offset="3105">
+        <state line="54" column="0" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.31445783" vertical-offset="549" max-vertical-offset="3105">
           <folding />
         </state>
       </provider>
