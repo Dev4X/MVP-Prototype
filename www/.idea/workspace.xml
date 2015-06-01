@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="runtime.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js">
+      <file leaf-file-name="learning.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/learning.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="83" selection-start="2839" selection-end="2839" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3105">
+            <state line="36" column="74" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-15.0" vertical-offset="180" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,43 @@
       <file leaf-file-name="i18n.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/org.chromium.i18n/i18n.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="9" selection-start="4878" selection-end="4878" vertical-scroll-proportion="0.4157044" vertical-offset="1545" max-vertical-offset="3090">
+            <state line="129" column="9" selection-start="4909" selection-end="4909" vertical-scroll-proportion="0.5654762" vertical-offset="1460" max-vertical-offset="3180">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runtime.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="43" selection-start="1898" selection-end="1898" vertical-scroll-proportion="-11.692307" vertical-offset="281" max-vertical-offset="3105">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/locales/en/messages.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="29" selection-start="808" selection-end="808" vertical-scroll-proportion="-26.25" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/locales/sw/messages.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="5" selection-start="809" selection-end="888" vertical-scroll-proportion="-27.5" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="114" selection-start="3417" selection-end="3718" vertical-scroll-proportion="-28.75" vertical-offset="450" max-vertical-offset="1305">
               <folding />
             </state>
           </provider>
@@ -58,6 +94,9 @@
         <option value="$PROJECT_DIR$/plugins/org.chromium.common/helpers.js" />
         <option value="$PROJECT_DIR$/cordova_plugins.js" />
         <option value="$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js" />
+        <option value="$PROJECT_DIR$/locales/sw/messages.json" />
+        <option value="$PROJECT_DIR$/locales/en/messages.json" />
+        <option value="$PROJECT_DIR$/learning.html" />
         <option value="$PROJECT_DIR$/plugins/org.chromium.i18n/i18n.js" />
       </list>
     </option>
@@ -230,6 +269,56 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="en" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -332,16 +421,44 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="114" selection-start="3417" selection-end="3718" vertical-scroll-proportion="-28.75" vertical-offset="450" max-vertical-offset="1305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales/sw/messages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="5" selection-start="809" selection-end="888" vertical-scroll-proportion="-27.5" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locales/en/messages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="29" selection-start="808" selection-end="808" vertical-scroll-proportion="-26.25" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learning.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="74" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-15.0" vertical-offset="180" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-chrome-apps-runtime/api/runtime.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="83" selection-start="2839" selection-end="2839" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3105">
+        <state line="39" column="43" selection-start="1898" selection-end="1898" vertical-scroll-proportion="-11.692307" vertical-offset="281" max-vertical-offset="3105">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/org.chromium.i18n/i18n.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="9" selection-start="4878" selection-end="4878" vertical-scroll-proportion="0.4157044" vertical-offset="1545" max-vertical-offset="3090">
+        <state line="129" column="9" selection-start="4909" selection-end="4909" vertical-scroll-proportion="0.5654762" vertical-offset="1460" max-vertical-offset="3180">
           <folding />
         </state>
       </provider>

@@ -3,24 +3,44 @@
     "message": "Home",
     "description": "Home Screen"
   },
-  
+
   "Learning": {
     "message": "Learning",
     "description": "Learning Screen"
   },
-  
+
    "Community" : {
   	"message": "Community",
     "description": "Community Screen"
   },
-  
+
   "MyProfile": {
   	"message": "My Profile",
     "description": "My Profile"
   },
-  
+
   "Welcome": {
-  	"message": "Hi, I am your guide! Select an Activity to Begin!",
+  	"message": "Hi, I am your guide! <br>Select an Activity to Begin!",
     "description": "Welcome Message"
-  }
+  },
+
+    "AutoLearn": {
+        "message": "Learn at your own pace<br> using different resources.",
+        "description": ""
+    },
+
+    "InProgress": {
+        "message": "In Progress",
+        "description": ""
+    },
+
+    "Skills": {
+        "message": "Skills",
+        "description": ""
+    },
+
+    "Resources": {
+        "message": "Resources",
+        "description": ""
+    }
 }

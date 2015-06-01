@@ -122,6 +122,12 @@ function _getLocalesToUse() {
         // language returned by window.navigator is in format en-US, need to change it to en_us
         var windowLocale = window.navigator.language.replace('-', '_').toLowerCase();
         var localesToUse = ['en','sw'];
+        for(var i=0;i<localesToUse.length;i++){
+            if(windowLocale == localesToUse[i]){
+                localStorage.setItem('locale', windowLocale);
+                break;
+            }
+        }
         var defaultLocale = _getDefaultLocale().toLowerCase();
         if(localesToUse.indexOf(defaultLocale) == -1) {
             localesToUse.push(defaultLocale);

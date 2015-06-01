@@ -20,7 +20,27 @@
   },
   
   "Welcome": {
-  	"message": "Hujambo, Mimi ni mwongozi wako! Chagua shughuli kuanza!",
+  	"message": "Hujambo, Mimi ni mwongozi wako!<br> Chagua shughuli kuanza!",
     "description": "Welcome Message"
-  }
+  },
+
+    "AutoLearn": {
+        "message": "Jifunze kwa kasi yako mwenyewe <br>kwa kutumia rasilimali mbalimbali.",
+        "description": "Welcome Message"
+    },
+
+    "InProgress": {
+        "message": "Inaendelea",
+        "description": ""
+    },
+
+    "Skills": {
+        "message": "Ujuzi",
+        "description": ""
+    },
+
+    "Resources": {
+        "message": "Rasilimali",
+        "description": ""
+    }
 }
