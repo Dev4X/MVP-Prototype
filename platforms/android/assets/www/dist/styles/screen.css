@@ -320,10 +320,12 @@ td, th {
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   overflow: hidden; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 p, ul {
   margin: 0;
@@ -333,7 +335,7 @@ ul {
   list-style: none; }
 
 #frame {
-  height: 1024px;
+  height: 100%;
   width: 600px;
   position: relative; }
 
