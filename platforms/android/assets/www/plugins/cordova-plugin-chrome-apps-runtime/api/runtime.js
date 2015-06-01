@@ -57,7 +57,7 @@ exports.getManifest = function() {
   if (typeof manifestJson == 'undefined') {
     var xhr = new XMLHttpRequest();
     // This is a bit fragile - determine path by whether chromeapp.html is in the URL.
-    var path = /chromeapp\.html$/.exec(location.href) ? '../../manifest.json' : './_locales/manifest.json';
+    var path = /chromeapp\.html$/.exec(location.href) ? '../../manifest.json' : './locales/manifest.json';
     xhr.open('GET', path, false);
     xhr.send(null);
     if ((xhr.status === 0 || (xhr.status >= 200 && xhr.status < 300)) && xhr.responseText && xhr.responseText.length > 0) {

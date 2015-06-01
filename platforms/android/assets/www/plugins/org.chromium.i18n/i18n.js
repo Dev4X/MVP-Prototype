@@ -38,7 +38,7 @@ function _endsWith(string, endString) {
 }
 
 function _getFilePathForLocale(locale) {
-    return './_locales/' + locale.toLowerCase() + '/messages.json';
+    return './locales/' + locale.toLowerCase() + '/messages.json';
 }
 
 function _toLowerCaseMessageAndPlaceholders(obj) {
@@ -121,18 +121,11 @@ function _getLocalesToUse() {
     if(!chosenLocales) {
         // language returned by window.navigator is in format en-US, need to change it to en_us
         var windowLocale = window.navigator.language.replace('-', '_').toLowerCase();
-        var localesToUse = [windowLocale];
-        // Construct fallback chain
-        var lastIndex;
-        while((lastIndex = windowLocale.lastIndexOf('_')) !== -1) {
-            windowLocale = windowLocale.substring(0, lastIndex);
-            localesToUse.push(windowLocale);
-        }
+        var localesToUse = ['en','sw'];
         var defaultLocale = _getDefaultLocale().toLowerCase();
         if(localesToUse.indexOf(defaultLocale) == -1) {
             localesToUse.push(defaultLocale);
         }
-
         chosenLocales = [] ;
         for(var i = 0; i < localesToUse.length; i++) {
             var currentLocale = localesToUse[i];

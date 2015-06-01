@@ -1,0 +1,26 @@
+{
+  "Home": {
+    "message": "Nayumbani",
+    "description": "Home Screen"
+  },
+  
+  "Learning": {
+    "message": "Kujifunza",
+    "description": "Learning Screen"
+  },
+  
+  "Community" : {
+  	"message": "Jamii",
+    "description": "Community Screen"
+  },
+  
+  "MyProfile": {
+  	"message": "Kuhusu Mimi",
+    "description": "My Profile"
+  },
+  
+  "Welcome": {
+  	"message": "Hujambo, Mimi ni mwongozi wako! Chagua shughuli kuanza!",
+    "description": "Welcome Message"
+  }
+}

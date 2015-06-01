@@ -18,6 +18,12 @@ function onDeviceReady() {
     }*/
 }
 
+function initApp(){
+	window.setTimeout(function() {
+		translatePage();
+	}, 1000);
+}
+
 var packageName = '';//var to store package name.
 
 //This function is called from html page by onclick event
