@@ -22,6 +22,12 @@ function initApp(){
 	window.setTimeout(function() {
 		translatePage();
 	}, 1000);
+
+    if(document.getElementById('languages')){
+        if(localStorage.getItem('locale')){
+            document.getElementById('language_'+localStorage.getItem('locale')).checked = true;
+        }
+    }
 }
 
 var packageName = '';//var to store package name.
@@ -55,5 +61,12 @@ function translatePage(){
     for(var i=0 ;i<nodes.length;i++){
         var node = nodes[i];
         node.innerHTML = chrome.i18n.getMessage(node.getAttribute('data-i18n'));
+    }
+}
+
+function switchLanguage(radio){
+    if(radio.checked == true){
+        localStorage.setItem('locale',radio.name);
+        window.location.reload();
     }
 }

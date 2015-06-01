@@ -42,5 +42,30 @@
     "Resources": {
         "message": "Rasilimali",
         "description": ""
+    },
+
+    "Stream": {
+        "message": "Kazi uliomaliza",
+        "description": ""
+    },
+
+    "Attributes": {
+        "message": "Sifa",
+        "description": ""
+    },
+
+    "LanguagesHeader" : {
+        "message": "Kuchagua Lugha",
+        "description": ""
+    },
+
+    "English" : {
+        "message": "Kiingereza",
+        "description": ""
+    },
+
+    "Swahili" : {
+        "message": "Swahili",
+        "description": ""
     }
 }

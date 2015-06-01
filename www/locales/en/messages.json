@@ -42,5 +42,30 @@
     "Resources": {
         "message": "Resources",
         "description": ""
+    },
+
+    "Stream": {
+        "message": "Stream/Completed Work",
+        "description": ""
+    },
+
+    "Attributes": {
+        "message": "Attributes",
+        "description": ""
+    },
+
+    "LanguagesHeader" : {
+        "message": "Select a Language",
+        "description": ""
+    },
+
+    "English" : {
+        "message": "English",
+        "description": ""
+    },
+
+    "Swahili" : {
+        "message": "Swahili",
+        "description": ""
     }
 }

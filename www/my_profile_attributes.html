@@ -31,10 +31,14 @@
 				<img src="dist/images/banner_profile.png" alt="My Profile">
 			</div>
 			<ul id="sub-nav">
-				<li class="active"><a href="my_profile.html" data-i18n="Stream" class="i18n">Stream</a>
-				<li><a href="my_profile_attributes.html" data-i18n="Attributes" class="i18n">Attributes</a>
+				<li><a href="my_profile.html" data-i18n="Stream" class="i18n">Stream</a>
+				<li class="active"><a href="my_profile_attributes.html" data-i18n="Attributes" class="i18n">Attributes</a>
 			</ul>
-			<img src="dist/images/profile_content.png" alt="">
+            <div id="languagesHeader" data-i18n="LanguagesHeader" class="i18n">Select a Language</div>
+            <div id="languages">
+                <label ><input type="radio" id="language_en" name="en" onchange="switchLanguage(this)" ><span data-i18n="English" class="i18n">English</span></label>
+                <label><input type="radio" id="language_sw" name="sw" onchange="switchLanguage(this)"><span data-i18n="Swahili" class="i18n">Swahili</span></label>
+            </div>
 		</div>
 
 		<ul id="footer">

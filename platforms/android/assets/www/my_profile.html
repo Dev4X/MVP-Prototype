@@ -6,16 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dev4X</title>
   <meta name="description" content="">
-  <link rel="stylesheet" href="dist/styles/screen.css">
+    <script src="cordova.js"></script>
+
+    <!-- App Laucnher (https://github.com/nchutchind/App-Launcher-Cordova-Plugin) -->
+    <script src="js/Launcher.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="dist/styles/screen.css">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="profile">
+<body class="profile"  onload="initApp()">
 	<div id="frame">
 		<header>
-			<p class="header-text">My Profile</p>
+			<p data-i18n="MyProfile" class="header-text i18n">My Profile</p>
 			<div id="profile-button">
 				<a href="my_profile.html">
 					<img src="dist/images/my_profile_icon_active.png" alt="My Profile">
-					<p>My Profile</p>
+                    <p data-i18n="MyProfile" class="i18n">My Profile</p>
 				</a>
 			</div>
 		</header>
@@ -25,16 +31,16 @@
 				<img src="dist/images/banner_profile.png" alt="My Profile">
 			</div>
 			<ul id="sub-nav">
-				<li class="active"><a href="my_profile.html">Stream</a>
-				<li><a href="my_profile.html">Attributes</a>
+				<li class="active"><a href="my_profile.html" data-i18n="Stream" class="i18n">Stream</a>
+				<li><a href="my_profile_attributes.html" data-i18n="Attributes" class="i18n">Attributes</a>
 			</ul>
 			<img src="dist/images/profile_content.png" alt="">
 		</div>
 
 		<ul id="footer">
-			<li id="home_link"><a href="index.html">Home</a>
-			<li id="learning_link"><a href="learning.html">Learning</a>
-			<li id="community_link"><a href="community.html">Community</a>
+            <li id="home_link"><a data-i18n="Home" href="index.html" class="i18n">Home</a>
+            </li><li id="learning_link"><a data-i18n="Learning" href="learning.html" class="i18n">Learning</a>
+        </li><li id="community_link"><a data-i18n="Community" class="i18n" href="community.html">Community</a></li>
 		</ul>
 	</div>
 </body>
