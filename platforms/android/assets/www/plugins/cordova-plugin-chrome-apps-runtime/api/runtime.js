@@ -1,4 +1,4 @@
-cordova.define("cordova-plugin-chrome-apps-runtime.runtime", function(require, exports, module) { // Copyright (c) 2012 The Chromium Authors. All rights reserved.
+cordova.define("org.chromium.runtime.runtime", function(require, exports, module) { // Copyright (c) 2012 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -57,7 +57,7 @@ exports.getManifest = function() {
   if (typeof manifestJson == 'undefined') {
     var xhr = new XMLHttpRequest();
     // This is a bit fragile - determine path by whether chromeapp.html is in the URL.
-    var path = /chromeapp\.html$/.exec(location.href) ? '../../manifest.json' : 'manifest.json';
+    var path = /chromeapp\.html$/.exec(location.href) ? '../../manifest.json' : './_locales/manifest.json';
     xhr.open('GET', path, false);
     xhr.send(null);
     if ((xhr.status === 0 || (xhr.status >= 200 && xhr.status < 300)) && xhr.responseText && xhr.responseText.length > 0) {

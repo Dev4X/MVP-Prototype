@@ -28,7 +28,7 @@
 <body class="home platform-android platform-cordova platform-webview">
 	<div id="frame">
 		<header>
-			<p class="header-text">Home</p>
+			<p data-i18n="Home" class="header-text  i18n"></p>
 			<div id="profile-button">
 				<a href="my_profile.html">
 					<img src="dist/images/my_profile_icon.png" alt="My Profile">
@@ -43,7 +43,32 @@
 				<p>Hi! I am your guide!<br>Select an activity to begin.</p>
 			</div>
 			<!--This is using launcher plugin to load the app -->
-			<button id="metific" onclick="launchApp('com.slatescience.Matific')"></button>
+			<div class="appIconRow">
+				<button id="abcphonics" class="appIcon" onclick="launchApp('kr.co.smartstudy.phonicsiap_android_googlemarket')"></button>
+				<button id="swalihiphonics" class="appIcon" onclick="launchApp('com.einbrain.swahili01')"></button>
+			</div>
+			
+			<div class="appIconRow">
+				<button id="endlessalphabet" class="appIcon" onclick="launchApp('com.originatorkids.EndlessAlphabet')"></button>
+				<button id="kakachui" class="appIcon" onclick="launchApp('com.game254studios.kakanchui')"></button>
+				<button id="metific" class="appIcon" onclick="launchApp('com.slatescience.Matific')"></button>
+				<button id="montessori" class="appIcon" onclick="launchApp('air.mobi.kidsacademy.gp.abc.hd')"></button>
+			</div>
+			
+			<div class="appIconRow">
+				<button id="onebillion3-5" class="appIcon" onclick="launchApp('uk.org.onebillion.maths.practice_1')"></button>
+				<button id="onebillion4-6" class="appIcon" onclick="launchApp('com.eurotalk.maths_2')"></button>
+				<button id="graphogame" class="appIcon" onclick="launchApp('com.graphogame.GGUSEnglishDemo')"></button>
+				<button id="smartyants" class="appIcon" onclick="launchApp('com.smartyants.app1')"></button>
+			</div>
+			<div class="appIconRow">
+				<button id="pixelparker" class="appIcon" onclick="launchApp('air.com.spinlight.pixelandparker')"></button>
+				<button id="eggyalphabet" class="appIcon" onclick="launchApp('air.com.blake.eggyalphabet')"></button>
+				<button id="eggy100" class="appIcon" onclick="launchApp('air.com.thirdsense.eggy100')"></button>
+				<button id="eggyjump" class="appIcon" onclick="launchApp('com.slingshotgames.eggyjump')"></button>
+				<button id="electriccompany" class="appIcon" onclick="launchApp('org.pbskids.pranksterplanet')"></button>
+				<button id="coloringblock" class="appIcon" onclick="launchApp('pl.ayground.coloringbook')"></button>
+			</div>
 		</div>
 
 		<ul id="footer">

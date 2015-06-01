@@ -38,7 +38,7 @@ function _endsWith(string, endString) {
 }
 
 function _getFilePathForLocale(locale) {
-    return '/_locales/' + locale.toLowerCase() + '/messages.json';
+    return './_locales/' + locale.toLowerCase() + '/messages.json';
 }
 
 function _toLowerCaseMessageAndPlaceholders(obj) {
@@ -61,6 +61,7 @@ function _toLowerCaseMessageAndPlaceholders(obj) {
 function _getDefaultLocale() {
     var manifestJson = runtime.getManifest();
     if(manifestJson.default_locale) {
+        localStorage.setItem('locale',manifestJson.default_locale);
         return manifestJson.default_locale;
     } else {
         throw new Error('Default locale not defined');
@@ -114,6 +115,9 @@ function _isLocaleAvailable(locale) {
 
 var chosenLocales;
 function _getLocalesToUse() {
+    if(localStorage.getItem('locale')){
+        chosenLocales = [localStorage.getItem('locale')];
+    }
     if(!chosenLocales) {
         // language returned by window.navigator is in format en-US, need to change it to en_us
         var windowLocale = window.navigator.language.replace('-', '_').toLowerCase();

@@ -43,3 +43,11 @@ function appLaunchSuccessCallback(){
 function appLaunchErrorCallback(){
 	alert('Error in launching app');
 }
+
+function translatePage(){
+    var nodes = document.querySelectorAll('.i18n');
+    for(var i=0 ;i<nodes.length;i++){
+        var node = nodes[i];
+        node.innerHTML = chrome.i18n.getMessage(node.getAttribute('data-i18n'));
+    }
+}
