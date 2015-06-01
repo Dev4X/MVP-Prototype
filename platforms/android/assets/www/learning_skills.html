@@ -6,16 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dev4X</title>
   <meta name="description" content="">
-  <link rel="stylesheet" href="dist/styles/screen.css">
+    <script src="cordova.js"></script>
+
+    <!-- App Laucnher (https://github.com/nchutchind/App-Launcher-Cordova-Plugin) -->
+    <script src="js/Launcher.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="dist/styles/screen.css">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="learning">
+<body class="learning" onload="initApp()">
 	<div id="frame">
 		<header>
-			<p class="header-text">Learning</p>
+            <p data-i18n="Learning" class="header-text i18n">Learning</p>
 			<div id="profile-button">
 				<a href="my_profile.html">
 					<img src="dist/images/my_profile_icon.png" alt="My Profile">
-					<p>My Profile</p>
+                    <p data-i18n="MyProfile" class="i18n">My Profile</p>
 				</a>
 			</div>
 		</header>
@@ -23,20 +29,20 @@
 		<div id="viewer">
 			<div id="banner">
 				<img src="dist/images/banner_learning.png" alt="Learning">
-				<p>Learn at your own pace<br>using different resources.</p>
+                <p data-i18n="AutoLearn" class="i18n">Learn at your own pace<br>using different resources.</p>
 			</div>
 			<ul id="sub-nav">
-				<li><a href="learning.html">In progress</a>
-				<li class="active"><a href="learning_skills.html">Skills</a>
-				<li><a href="learning_resources.html">Resources</a>
+                <li><a href="learning.html" data-i18n="InProgress" class="i18n">In progress</a>
+                <li class="active"><a href="learning_skills.html" data-i18n="Skills" class="i18n">Skills</a>
+                <li><a href="learning_resources.html" data-i18n="Resources" class="i18n">Resources</a></li>
 			</ul>
 			<img src="dist/images/learning_skills.png" alt="">
 		</div>
 
 		<ul id="footer">
-			<li id="home_link"><a href="index.html">Home</a>
-			<li id="learning_link" class="active"><a href="learning.html">Learning</a>
-			<li id="community_link"><a href="community.html">Community</a>
+            <li id="home_link" class="active"><a data-i18n="Home" class="i18n" href="index.html">Home</a>
+            </li><li id="learning_link" class="active"><a data-i18n="Learning" href="learning.html" class="i18n">Learning</a>
+        </li><li id="community_link"><a data-i18n="Community" class="i18n" href="community.html">Community</a></li>
 		</ul>
 	</div>
 </body>
