@@ -67,5 +67,25 @@
     "Swahili" : {
         "message": "Swahili",
         "description": ""
+    },
+
+    "AppLaunchError": {
+        "message": "Kosa katika uzinduzi programu",
+        "description": ""
+    },
+
+    "LearningHeader": {
+        "message": "Kuona nini rafiki yako ni <br> kujifunza na kubadilishana mawazo.",
+        "description": ""
+    },
+
+    "HelpOthers": {
+        "message": "Wasaidie Wengine",
+        "description": ""
+    },
+
+    "GetHelp": {
+        "message": "Jipatie Msaada",
+        "description": ""
     }
 }

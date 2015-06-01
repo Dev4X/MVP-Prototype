@@ -7,36 +7,51 @@
   <title>Dev4X</title>
   <meta name="description" content="">
   <link rel="stylesheet" href="dist/styles/screen.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <!--<script src="lib/ionic/js/ionic.bundle.js"></script>-->
+
+    <!--<script src="lib/ngCordova/dist/ng-cordova.js"></script>-->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- App Laucnher (https://github.com/nchutchind/App-Launcher-Cordova-Plugin) -->
+    <script src="js/Launcher.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
 </head>
-<body class="community">
+<body class="community" onload="initApp()">
 	<div id="frame">
 		<header>
-			<p class="header-text">Community</p>
-			<div id="profile-button">
-				<a href="my_profile.html">
-					<img src="dist/images/my_profile_icon.png" alt="My Profile">
-					<p>My Profile</p>
-				</a>
-			</div>
+            <p class="header-text i18n" data-i18n="Community">Community</p>
+            <div id="profile-button">
+                <a href="my_profile.html">
+                    <img src="dist/images/my_profile_icon.png" alt="My Profile">
+                    <p data-i18n="MyProfile" class="i18n">My Profile</p>
+                </a>
+            </div>
 		</header>
 
 		<div id="viewer">
 			<div id="banner">
 				<img src="dist/images/banner_community.png" alt="Community">
-				<p>See what your friends are<br>learning and share ideas.</p>
+                <p data-i18n="LearningHeader" class="i18n">See what your friends are<br>learning and share ideas.</p>
 			</div>
 			<ul id="sub-nav">
-				<li><a href="community.html">Stream</a>
-				<li><a href="community_help_others.html">Help Others</a>
-				<li class="active"><a href="community_get_help.html">Get Help</a>
+                <li ><a href="community.html" data-i18n="Stream" class="i18n">Stream</a>
+                <li ><a href="community_help_others.html" data-i18n="HelpOthers" class="i18n">Help Others</a>
+                <li class="active"><a href="community_get_help.html" data-i18n="GetHelp" class="i18n">Get Help</a></li>
 			</ul>
 			<img src="dist/images/community_get_help_content.png" alt="">
 		</div>
 
 		<ul id="footer">
-			<li id="home_link"><a href="index.html">Home</a>
-			<li id="learning_link"><a href="learning.html">Learning</a>
-			<li id="community_link" class="active"><a href="community.html">Community</a>
+            <li id="home_link" ><a data-i18n="Home" href="index.html" class="i18n">Home</a>
+            </li><li id="learning_link"><a data-i18n="Learning" href="learning.html" class="i18n">Learning</a>
+        </li><li id="community_link" class="active"><a data-i18n="Community" class="i18n" href="community.html">Community</a></li>
 		</ul>
 	</div>
 </body>

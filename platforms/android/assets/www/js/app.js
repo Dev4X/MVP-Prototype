@@ -53,7 +53,7 @@ function appLaunchSuccessCallback(){
 }
 
 function appLaunchErrorCallback(){
-	alert('Error in launching app');
+	alert(chrome.i18n.getMessage('AppLaunchError'));
 }
 
 function translatePage(){

@@ -67,5 +67,25 @@
     "Swahili" : {
         "message": "Swahili",
         "description": ""
+    },
+
+    "AppLaunchError": {
+        "message": "Error in launching app",
+        "description": ""
+    },
+
+    "LearningHeader": {
+        "message": "See what your friends are <br> learning and share ideas.",
+        "description": ""
+    },
+
+    "HelpOthers": {
+        "message": "Help Others",
+        "description": ""
+    },
+
+    "GetHelp": {
+        "message": "Get Help",
+        "description": ""
     }
 }
